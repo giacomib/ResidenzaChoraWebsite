@@ -15230,12 +15230,12 @@ label.required .sc_form_field_title:after {
 .tooltipster-base.tooltipster-light .tooltipster-content {
     padding: 1em 1em;
     border: none;
-    background-color: #293321;
+    background-color: #616a41;
     color: #fff;
 }
 
 .tooltipster-base.tooltipster-light .tooltipster-arrow span {
-    border-top-color: #293321 !important;
+    border-top-color: #616a41 !important;
 }
 
 .cq-hotspots .hotspot-item a.cq-tooltip span {

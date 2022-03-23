@@ -335,7 +335,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 .scheme_default h5 a,
 .scheme_default h6 a,
 .scheme_default li a {
-    color: #616a41;
+    color: #88b04b;
 }
 
 .scheme_default h1 a:hover,
@@ -597,7 +597,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_default .top_panel .slider_engine_revo .slide_subtitle {
-    color: #7c4836;
+    color: #88b04b;
 }
 
 .scheme_default .logo b {
@@ -1539,7 +1539,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_default .sc_button_hover_slide_top {
-    background: linear-gradient(to bottom, #616a41 50%, #7c4836 50%) no-repeat scroll right bottom / 100% 210% #7c4836 !important;
+    background: linear-gradient(to bottom, #616a41 50%, #88b04b 50%) no-repeat scroll right bottom / 100% 210% #88b04b !important;
 }
 
 .scheme_default .sc_button_hover_slide_bottom {
@@ -1780,7 +1780,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 
 .scheme_default .trx_addons_accent,
 .scheme_default .trx_addons_accent>* {
-    color: #7c4836;
+    color: #88b04b;
 }
 
 .scheme_default .trx_addons_accent_bg {
@@ -1947,9 +1947,12 @@ li.bbp-topic-title .bbp-topic-permalink,
 
 .scheme_default .slider_swiper.slider_controls_side .slider_controls_wrap>a,
 .scheme_default .slider_outer_controls_side .slider_controls_wrap>a {
-    color: #7c4836;
-    background-color: #616a41;
-    border-color: #616a41;
+    color: #88b04b;
+    /*background-color: #616a41;
+    border-color: #616a41;*/
+    background-color: #495e35;
+    border-color: #495e35;
+    
 }
 
 .scheme_default .slider_swiper.slider_controls_side .slider_controls_wrap>a:hover,
@@ -2012,7 +2015,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_default .sc_slider_controller .swiper-slide.swiper-slide-active {
-    border-color: #7c4836;
+    border-color: #495e35;
 }
 
 .scheme_default .sc_slider_controller_titles .swiper-slide {
@@ -2190,7 +2193,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_default .sc_item_subtitle {
-    color: #7c4836;
+    color: #88b04b;
 }
 
 .scheme_default .sc_item_subtitle.sc_item_title_style_shadow {
@@ -2213,7 +2216,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 .scheme_default .sc_item_button a.sc_button_simple:not(.sc_button_bg_image):before,
 .scheme_default a.sc_button_simple:not(.sc_button_bg_image):after,
 .scheme_default .sc_item_button a.sc_button_simple:not(.sc_button_bg_image):after {
-    color: #7c4836;
+    color: #88b04b;
 }
 
 .scheme_default a.sc_button_simple:not(.sc_button_bg_image):hover,
@@ -2271,7 +2274,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 .scheme_default .toc_menu_item .toc_menu_icon {
     background-color: #ffffff;
     border-color: #e7eef2;
-    color: #7c4836;
+    color: #495e35;
 }
 
 .scheme_default .toc_menu_item:hover .toc_menu_icon,
@@ -2731,7 +2734,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 
 .scheme_default .sc_services_iconed .sc_services_item_header {
     color: #ffffff;
-    background-color: #616a41;
+    background-color: #495e35;
 }
 
 .scheme_default .sc_services_iconed .sc_services_item_icon,
@@ -2743,11 +2746,11 @@ li.bbp-topic-title .bbp-topic-permalink,
 .scheme_default .sc_services_iconed .sc_services_item:hover .sc_services_item_icon,
 .scheme_default .sc_services_iconed .sc_services_item_subtitle a:hover,
 .scheme_default .sc_services_iconed .sc_services_item:hover .sc_services_item_subtitle a {
-    color: #7c4836;
+    color: #88b04b;
 }
 
 .scheme_default .sc_services_iconed .sc_services_item_title a {
-    color: #7c4836;
+    color: #ffffff;
 }
 
 .scheme_default .sc_services_iconed .sc_services_item_title a:hover,
@@ -4065,7 +4068,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 .scheme_light h5 a,
 .scheme_light h6 a,
 .scheme_light li a {
-    color: #616a41;
+    color: #88b04b;
 }
 
 .scheme_light h1 a:hover,
@@ -8222,13 +8225,13 @@ li.bbp-topic-title .bbp-topic-permalink,
 .scheme_side.menu_side_wrap .menu_side_button:hover {
     color: #f0f0f0;
     border-color: #ffffff;
-    background-color: #7c4836;
+    background-color: #495e35;
 }
 
 .scheme_side .menu_side_inner,
 .scheme_side .menu_mobile_inner {
     color: #969fa6;
-    background-color: #616a41;
+    background-color: #495e35;
 }
 
 .scheme_side .menu_mobile_button {
@@ -8977,7 +8980,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_side .sc_button_hover_slide_top {
-    background: linear-gradient(to bottom, #ffffff 50%, #7c4836 50%) no-repeat scroll right bottom / 100% 210% #7c4836 !important;
+    background: linear-gradient(to bottom, #ffffff 50%, #88b04b 50%) no-repeat scroll right bottom / 100% 210% #7c4836 !important;
 }
 
 .scheme_side .sc_button_hover_slide_bottom {
@@ -9697,9 +9700,9 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_side .toc_menu_item .toc_menu_icon {
-    background-color: #616a41;
+    background-color: #495e35;
     border-color: #0c1200;
-    color: #7c4836;
+    color: #88b04b;
 }
 
 .scheme_side .toc_menu_item:hover .toc_menu_icon,
@@ -10554,7 +10557,7 @@ section.scheme_side,
 .scheme_side.wpb_column>.vc_column-inner>.wpb_wrapper,
 .scheme_side.wpb_text_column {
     color: #969fa6;
-    background-color: #616a41;
+    background-color: #495e35;
 }
 
 .scheme_side.sc_parallax .sc_parallax_overlay {
@@ -12560,7 +12563,7 @@ section.scheme_side,
 }
 
 .scheme_dark .copyright_wrap_inner {
-    background-color:  #616a41;
+    background-color:  #495e35;
     border-color: #0c1200;
     color: #ffffff;
 }
@@ -13332,7 +13335,7 @@ section.scheme_side,
 }
 
 .scheme_dark .sc_item_subtitle {
-    color: #7c4836;
+    color: #88b04b;
 }
 
 .scheme_dark .sc_item_subtitle.sc_item_title_style_shadow {
@@ -13904,7 +13907,8 @@ section.scheme_side,
 }
 
 .scheme_dark .sc_skills .sc_skills_total {
-    color: #7c4836;
+    /*color: #7c4836;*/
+    color: #88b04b
 }
 
 .scheme_dark .sc_skills .sc_skills_item_title,
@@ -14262,7 +14266,9 @@ section.scheme_dark,
 .scheme_dark.column_container>.column-inner,
 .scheme_dark.wpb_text_column {
     color: #969fa6;
-    background-color:  #616a41;
+    /*background-color:  #616a41;*/
+    background-color: #495e35
+    /*background-color:  #88b04b;*/
 }
 
 .scheme_dark.vc_row.vc_parallax[class*="scheme_"] .vc_parallax-inner:before {

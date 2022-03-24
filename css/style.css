@@ -15570,14 +15570,15 @@ label.required .sc_form_field_title:after {
 }
 
 .bg_image_3 {
-    background-image: url(../images/bg_services.jpg);
+    background-image: url(../images/houses/07.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bg_image_4 {
-    background-image: url(../images/bg_hotspots.jpg);
+    /*background-image: url(../images/bg_hotspots.jpg);*/
+    background-image: url(../images/houses/08.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

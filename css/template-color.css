@@ -518,8 +518,8 @@ li.bbp-topic-title .bbp-topic-permalink,
 
 .scheme_default input[type="radio"]+label:before,
 .scheme_default input[type="checkbox"]+label:before {
-    border-color: #f4f9fc;
-    background-color: #f4f9fc;
+    border-color: #88b04b;
+    background-color: #88b04b;
 }
 
 .scheme_default button,
@@ -7806,11 +7806,11 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_side a {
-    color: #7c4836;
+    color: #ffffff;
 }
 
 .scheme_side a:hover {
-    color: #ffffff;
+    color: #354328;
 }
 
 .scheme_side blockquote {
@@ -8898,7 +8898,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_side .theme_scroll_down:hover {
-    color: #7c4836;
+    color: #495d35;
 }
 
 .scheme_side .mfp-bg {
@@ -9240,7 +9240,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 }
 
 .scheme_side .trx_addons_dark>a:hover {
-    color: #7c4836;
+    color: #354328;
 }
 
 .scheme_side .trx_addons_inverse,
@@ -9890,7 +9890,7 @@ li.bbp-topic-title .bbp-topic-permalink,
 
 .scheme_side .sc_form .sc_form_field input[type="text"]:focus,
 .scheme_side .sc_form .sc_form_field textarea:focus {
-    color: #ffffff;
+    color: #000000;
     border-color: #7c4836
     background-color: #7c4836
 }
@@ -10556,8 +10556,8 @@ section.scheme_side,
 .scheme_side.wpb_row,
 .scheme_side.wpb_column>.vc_column-inner>.wpb_wrapper,
 .scheme_side.wpb_text_column {
-    color: #969fa6;
-    background-color: #7c4836;
+    color: #ffffff;
+    background-color: #8a6b56;
 }
 
 .scheme_side.sc_parallax .sc_parallax_overlay {
@@ -12563,7 +12563,7 @@ section.scheme_side,
 }
 
 .scheme_dark .copyright_wrap_inner {
-    background-color:  #7c4836;
+    background-color:  #8a6b56;
     border-color: #0c1200;
     color: #ffffff;
 }
@@ -12577,7 +12577,7 @@ section.scheme_side,
 }
 
 .scheme_dark .copyright_wrap_inner .copyright_text {
-    color: #969fa6;
+    color: #ffffff;
 }
 
 .scheme_dark .theme_button,
@@ -13335,7 +13335,7 @@ section.scheme_side,
 }
 
 .scheme_dark .sc_item_subtitle {
-    color: #88b04b;
+    color: #495e35;
 }
 
 .scheme_dark .sc_item_subtitle.sc_item_title_style_shadow {

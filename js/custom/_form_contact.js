@@ -4,6 +4,8 @@ jQuery(document).ready(function() {
         e.preventDefault();
         var $form = jQuery(this);
         //checking on empty values
+        var p3_checked = $("#privacy-3:checked").length > 0;
+
         var formFields = $form.serializeArray();
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var emailaddressVal = jQuery("#contact_form_email").val();

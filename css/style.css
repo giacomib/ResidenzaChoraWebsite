@@ -15566,10 +15566,12 @@ label.required .sc_form_field_title:after {
 }
 
 .bg_image_2 {
-    background-image: url(../images/houses/08.jpeg);
+    background-image: url(../images/houses/08_opaque.jpeg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /*opacity: 0.75;*/
+    /*background-color: rgba(0, 0, 255, 0.5);*/
 }
 
 .bg_image_3 {

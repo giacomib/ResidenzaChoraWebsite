@@ -22,8 +22,15 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
         transform: translateY(-50%);
         width: 45%;
     }
-    
+
     .promo_text_right {
         margin-left:50%;
     }
+    #sc_googlemap_1 {
+        padding-top: 75px;;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
 }

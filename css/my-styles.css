@@ -26,8 +26,13 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     .promo_text_right {
         margin-left:50%;
     }
+
     #sc_googlemap_1 {
         padding-top: 75px;;
+    }
+
+    .my_figure {
+        padding-left: 30%;
     }
 }
 

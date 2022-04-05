@@ -1,7 +1,38 @@
+$(document).ready(() => {
+    setupErrorBox();
+    $(".submit-form").click(checkControl);
+    $(".sc_services_item").click(onServiceClick);
+    $(".dark-box").click(onDarkBoxClick);
+})
+
+function onServiceClick() {
+    $(".sc_services_item").removeClass("active");
+    $("#services-section").addClass("dark");
+    $("#services-section .dark-box").fadeIn();
+    $(this).addClass("active");
+    let top = $(this).offset().top - $("#services-section").offset().top;
+    let left = $(this).offset().left - $("#services-section").offset().left;
+    let width = $(this).width();
+    let height = $(this).height();
+    let growerBox = $("#services-section .grower-box");
+    growerBox.css("top", top + "px");
+    growerBox.css("left", left + "px");
+    growerBox.css("width", width + "px");
+    growerBox.css("height", height + "px");
+    setTimeout(() => {
+        growerBox.addClass("grown");
+    }, 500);
+}
+function onDarkBoxClick() {
+    let growerBox = $("#services-section .grower-box");
+    growerBox.removeClass("grown");
+    $("#services-section .dark-box").fadeOut();
+    $(".sc_services_item").removeClass("active");
+}
+
 let errorBox = $(".trx_addons_message_box");
 let errorItem1 = $('<p class="error_item"></p>');
 let errorItem2 = $('<p class="error_item"></p>');
-
 function setupErrorBox() {
     errorBox.addClass("trx_addons_message_box_error");
     errorBox.append(errorItem1);
@@ -94,8 +125,3 @@ function showErrorBox() {
     errorBox.fadeIn();
     setTimeout(()=>errorBox.fadeOut(), 1500);
 }
-
-$(document).ready(() => {
-    setupErrorBox();
-    $(".submit-form").click(checkControl);
-})

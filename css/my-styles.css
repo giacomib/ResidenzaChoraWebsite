@@ -16,10 +16,66 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     height: 100%;
 }
 
+.swiper-slide:not(.swiper-slide-active) .my_figure {
+    opacity: 0;
+    transition: all .5s
+}
+
+#services-section {
+    position: relative;
+}
+#services-section .dark-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #0008;
+    top: 0;
+    display: none;
+}
+
+#services-section .sc_services_item_featured_top {
+    background-color: #495E35;
+}
+#services-section .sc_services_item .sc_services_item_header {
+    transition: all .5s;
+}
+#services-section .sc_services_item.active .sc_services_item_header {
+    opacity: 0;
+}
+
+#services-section .grower-box {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    background-color: #495E35;
+    top: 0;
+    opacity: 0;
+    transition-property: top left transform width height;
+    transition-duration: .5s;
+    /* transition-delay: .5s; */
+    z-index: 15;
+}
+#services-section .grower-box.grown {
+    opacity: 1 !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 80% !important;
+    height: 80% !important;
+}
+
+
+.sc_services_item {
+    transition: all .5s;
+}
+.sc_services_item.active {
+    z-index: 10;
+}
+
 @media screen and (min-width: 600px) {
     .my_promo_cst {
-        top: 50%;
-        transform: translateY(-50%);
+        /* top: 50%; */
+        /* transform: translateY(-50%); */
         width: 45%;
     }
 

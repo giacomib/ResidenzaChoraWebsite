@@ -36,6 +36,13 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     }
 }
 
-@media screen and (max-width: 600px) {
-    
+/*
+.sc_services_item_header {
+    transition-duration: 1s;
 }
+
+.sc_services_item_header:hover {
+    width: 800px;
+    height: 800px;
+}
+*/

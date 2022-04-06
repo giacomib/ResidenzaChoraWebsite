@@ -26,7 +26,7 @@ function onServiceClick() {
     
     if($(this).attr("id") == "box-1") {
         growerBox.append('<h3 class="intern-box-title">CLASSE ENERGETICA A3</h3>');
-        growerBox.append('<p class="intern-box-subtitle">La classe energetica A3 è quella più efficiente dal punto di vista del risparmio dell\'energia.</p>');
+        growerBox.append('<p class="intern-box-subtitle">La classe energetica A3 è quella più efficiente dal punto di vista del risparmio dell\'energia</p>');
         growerBox.append('<img class ="boxImage" src="images/boxes/classeEnergetica2.png">');
     }
 
@@ -53,7 +53,7 @@ function onServiceClick() {
 
     if($(this).attr("id") == "box-6") {
         growerBox.append('<h3 class="intern-box-title">SICUREZZA</h3>');
-        growerBox.append('<ul class="intern-box-ul"> <li class="intern-box-text">Videosorveglianza corsello box e ingressi con possibilità di collegamento remoto.</li> <li class="intern-box-text">Apertura basculante automatica.</li> <li class="intern-box-text">porta di ingresso blindata con apertura a codice numerico</li> <li class="intern-box-text">Chiusura notturna automatizzata corsello box.</li> </ul>');
+        growerBox.append('<ul class="intern-box-ul"> <li class="intern-box-text">Videosorveglianza corsello box e ingressi con possibilità di collegamento remoto.</li> <li class="intern-box-text">Apertura basculante automatica.</li> <li class="intern-box-text">Porta di ingresso blindata con apertura a codice numerico.</li> <li class="intern-box-text">Chiusura notturna automatizzata corsello box.</li> </ul>');
     }
 }
 

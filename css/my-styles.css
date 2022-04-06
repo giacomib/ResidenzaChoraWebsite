@@ -107,9 +107,9 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     #services-section .grower-box.grown {
         opacity: 1 !important;
         top: 53% !important;
-        left: 38.5% !important;
+        left: 28.5% !important;
         transform: translate(-50%, -50%) !important;
-        width: 60% !important;
+        width: 40% !important;
         height: 60% !important;
     }
 }
@@ -131,6 +131,8 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 
 .intern-box-title {
     text-align:center;
+    margin-top: 5%;
+    margin-bottom: 0%;;
 }
 
 .intern-box-ul {
@@ -138,12 +140,10 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     color: white;
     text-align: justify;
     padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin-left: 5%;
-    margin-right: 5%;
+    padding-left: 7%;
+    padding-right: 5%;
     margin-bottom: 0;
-    font-size:large;
+    font-size: large;
     line-height: 1.6;
 }
 
@@ -151,11 +151,9 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     position:relative;
     color:white;
     padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin-left: 3%;
-    margin-right: 3%;
-    font-size:large;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: large;
     font-weight: bold;
     text-align: center;
     line-height: 1.6;
@@ -164,12 +162,10 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 .intern-box-paragraph {
     position:relative;
     color:white;
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin-left: 3%;
-    margin-right: 3%;
-    font-size:large;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    font-size: large;
     font-weight: bold;
     line-height: 1.6;
 }
@@ -182,4 +178,11 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.custom-svg {
+    fill: white !important;
+}
+.custom-svg:hover {
+    fill: #88b04b !important;
 }

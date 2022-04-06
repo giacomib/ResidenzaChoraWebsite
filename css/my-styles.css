@@ -61,7 +61,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     width: 80% !important;
-    height: 80% !important;
+    height: 50% !important;
 }
 
 
@@ -90,6 +90,28 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     .my_figure {
         padding-left: 30%;
     }
+
+    #services-section .grower-box {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        background-color: #495E35;
+        top: 0;
+        opacity: 0;
+        transition-property: top left transform width height;
+        transition-duration: .5s;
+        /* transition-delay: .5s; */
+        z-index: 15;
+    }
+
+    #services-section .grower-box.grown {
+        opacity: 1 !important;
+        top: 53% !important;
+        left: 38.5% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 60% !important;
+        height: 60% !important;
+    }
 }
 
 /*
@@ -102,3 +124,62 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     height: 800px;
 }
 */
+
+.sc_services_item_title {
+    transition: .5s;
+}
+
+.intern-box-title {
+    text-align:center;
+}
+
+.intern-box-ul {
+    position: relative;
+    color: white;
+    text-align: justify;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0;
+    font-size:large;
+    line-height: 1.6;
+}
+
+.intern-box-subtitle {
+    position:relative;
+    color:white;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-size:large;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.intern-box-paragraph {
+    position:relative;
+    color:white;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-size:large;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.intern-box-text {
+    /*margin-bottom:3px;*/
+}
+
+.boxImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

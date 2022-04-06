@@ -2749,11 +2749,11 @@ li.bbp-topic-title .bbp-topic-permalink,
     color: #88b04b;
 }
 
-.scheme_default .sc_services_iconed .sc_services_item_title a {
+.scheme_default .sc_services_iconed .sc_services_item_title {
     color: #ffffff;
 }
 
-.scheme_default .sc_services_iconed .sc_services_item_title a:hover,
+.scheme_default .sc_services_iconed .sc_services_item_title:hover,
 .scheme_default .sc_services_iconed .sc_services_item:hover .sc_services_item_title a {
     color: #88b04b;
 }

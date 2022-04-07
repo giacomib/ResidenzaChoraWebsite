@@ -6,8 +6,9 @@ $(document).ready(() => {
 })
 
 function onServiceClick() {
+    console.log("a");
     $(".sc_services_item").removeClass("active");
-    $("#services-section").addClass("dark");
+    /*$("#services-section").addClass("dark");*/
     $("#services-section .dark-box").fadeIn();
     /*$(this).addClass("active");*/
     let top = $(this).offset().top - $("#services-section").offset().top;
@@ -18,7 +19,8 @@ function onServiceClick() {
     growerBox.css("top", top + "px");
     growerBox.css("left", left + "px");
     growerBox.css("width", width + "px");
-    growerBox.css("height", height + "px");
+    //growerBox.css("height", height + "px");
+
     setTimeout(() => {
         growerBox.addClass("grown");
     }, 500);
@@ -61,6 +63,7 @@ function onDarkBoxClick() {
     let growerBox = $("#services-section .grower-box");
     growerBox.empty();
     growerBox.removeClass("grown");
+    growerBox.css("top", "100vh");
     $("#services-section .dark-box").fadeOut();
     /*$(".sc_services_item").removeClass("active");*/
 }

@@ -28,7 +28,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: #0008;
+    /*background-color: #0008;*/
     top: 0;
     display: none;
 }
@@ -54,14 +54,20 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     transition-duration: .5s;
     /* transition-delay: .5s; */
     z-index: 15;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto !important;
 }
+
 #services-section .grower-box.grown {
     opacity: 1 !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     width: 80% !important;
-    height: 50% !important;
+    /*height: 50% !important;*/
 }
 
 
@@ -91,26 +97,17 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
         padding-left: 30%;
     }
 
-    #services-section .grower-box {
-        position: absolute;
-        width: 140px;
-        height: 140px;
-        background-color: #495E35;
-        top: 0;
-        opacity: 0;
-        transition-property: top left transform width height;
-        transition-duration: .5s;
-        /* transition-delay: .5s; */
-        z-index: 15;
-    }
-
     #services-section .grower-box.grown {
         opacity: 1 !important;
-        top: 53% !important;
-        left: 28.5% !important;
+        top: 60% !important;
+        left: 77% !important;
         transform: translate(-50%, -50%) !important;
         width: 40% !important;
-        height: 60% !important;
+        /*height: 60% !important;*/
+    }
+
+    .little_maps {
+        transform: rotate(90deg);
     }
 }
 
@@ -131,7 +128,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 
 .intern-box-title {
     text-align:center;
-    margin-top: 5%;
+    margin-top: 0%;
     margin-bottom: 0%;;
 }
 
@@ -185,4 +182,19 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 }
 .custom-svg:hover {
     fill: #88b04b !important;
+}
+
+.column-inner.ph15p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto !important;
+}
+
+@media screen and (max-width: 600px) {
+    #img_cartina_greenway {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

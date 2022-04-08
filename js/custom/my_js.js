@@ -6,25 +6,45 @@ $(document).ready(() => {
 })
 
 function onServiceClick() {
-    console.log("a");
     $(".sc_services_item").removeClass("active");
     /*$("#services-section").addClass("dark");*/
+
     $("#services-section .dark-box").fadeIn();
+
+    $("#services-section .my_container").fadeIn();
+
+    if($("#services-section .my_container").width() > 600) {
+        $("#services-section .dark-box").css("background-color", "#0000");
+    }
+    
     /*$(this).addClass("active");*/
     let top = $(this).offset().top - $("#services-section").offset().top;
     let left = $(this).offset().left - $("#services-section").offset().left;
     let width = $(this).width();
     let height = $(this).height();
     let growerBox = $("#services-section .grower-box");
-    growerBox.css("top", top + "px");
-    growerBox.css("left", left + "px");
-    growerBox.css("width", width + "px");
+
+    growerBox.css("left", "0");
+
+    /*growerBox.css("width", "50%");*/
+    growerBox.css("margin", "0 auto");
+
+    /*growerBox.css("height", "auto !important");*/
+
+    /*height_2 = $("#services-section .grower-box").height();*/
+
+    /*console.log("altezza" + height_2);*/
+
+    /*growerBox.css("top", top + "px");*/
+    /*growerBox.css("left", left + "px");*/
+    /*growerBox.css("width", width + "px");*/
     //growerBox.css("height", height + "px");
 
+    /*
     setTimeout(() => {
         growerBox.addClass("grown");
     }, 500);
-
+    */
     
     if($(this).attr("id") == "box-1") {
         growerBox.append('<h3 class="intern-box-title">CLASSE ENERGETICA A3</h3>');
@@ -61,11 +81,19 @@ function onServiceClick() {
 
 function onDarkBoxClick() {
     let growerBox = $("#services-section .grower-box");
-    growerBox.empty();
-    growerBox.removeClass("grown");
-    growerBox.css("top", "100vh");
+    /*growerBox.removeClass("grown");*/
+    /*growerBox.css("top", "100vh");*/
+
+    growerBox.css("left", "-100%");
+    growerBox.css("margin", "0");
+    /*growerBox.css("height", height_2 + "px");*/
     $("#services-section .dark-box").fadeOut();
+    $("#services-section .my_container").fadeOut();
     /*$(".sc_services_item").removeClass("active");*/
+
+    setTimeout(() => {
+        growerBox.empty();
+    }, 500);
 }
 
 let errorBox = $(".trx_addons_message_box");

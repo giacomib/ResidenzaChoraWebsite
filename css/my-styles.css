@@ -66,6 +66,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     height: 60%;
     transition: 1s;
     transition-timing-function: ease;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 600px) {

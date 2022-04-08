@@ -27,7 +27,7 @@ function onServiceClick() {
     growerBox.css("left", "0");
 
     /*growerBox.css("width", "50%");*/
-    growerBox.css("margin", "0 auto");
+    /*growerBox.css("margin", "0 auto");*/
 
     /*growerBox.css("height", "auto !important");*/
 
@@ -85,7 +85,9 @@ function onDarkBoxClick() {
     /*growerBox.css("top", "100vh");*/
 
     growerBox.css("left", "-100%");
-    growerBox.css("margin", "0");
+
+    /*growerBox.css("margin", "0");*/
+
     /*growerBox.css("height", height_2 + "px");*/
     $("#services-section .dark-box").fadeOut();
     $("#services-section .my_container").fadeOut();
@@ -93,6 +95,7 @@ function onDarkBoxClick() {
 
     setTimeout(() => {
         growerBox.empty();
+        $("#services-section .dark-box").css("background-color", "#0008");
     }, 500);
 }
 

@@ -53,7 +53,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     position: relative;
     width: 50% !important;
     background-color: #495E35;
-    top: 20%;
+    top: 22%;
     left: -100%;
     z-index: 15;
     padding: 20px;
@@ -213,3 +213,18 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     height: 40px !important;
     padding: 0 !important;
 }
+
+#capitolato {
+    color: #88b04b;
+    
+}
+
+#capitolato:hover{
+    color: #495e35;
+}
+
+/*
+.cq-hotspots {
+    width:100% ;
+}
+*/

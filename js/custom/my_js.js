@@ -30,28 +30,28 @@ function onServiceClick() {
     
     if($(this).attr("id") == "box-1") {
         slidingBox.append('<button class="close-button" onclick="onCloseButtonClick()" type="button">&#x2715</button>')
-        slidingBox.append('<h3 class="intern-box-title">CLASSE ENERGETICA A3</h3>');
-        slidingBox.append('<p class="intern-box-subtitle">La classe energetica A3 è quella più efficiente dal punto di vista del risparmio dell\'energia</p>');
-        slidingBox.append('<img class ="boxImage" src="images/boxes/classeEnergetica2.png">');
+        slidingBox.append('<h3 class="intern-box-title">CLASSE ENERGETICA NZEB</h3>');
+        slidingBox.append('<p class="intern-box-subtitle">Nearly Zero Emission Building: edificio ad alta prestazione energetica con fabbisogno energetico molto basso.</p>');
+        slidingBox.append('<img class ="boxImage" src="images/boxes/NZEB_Logo.png">');
     }
 
     if($(this).attr("id") == "box-2") {
         slidingBox.append('<button class="close-button" onclick="onCloseButtonClick()" type="button">&#x2715</button>')
         slidingBox.append('<h3 class="intern-box-title">IMPIANTI TECNOLOGICI</h3>');
         slidingBox.append('<p class="intern-box-paragraph">Riscaldamento: l\'edificio darà dotato di impianto centralizzato a pompa di calore, con apparecchiature per la gestione e la contabilizzazione dei consumi.</br> Il riscaldamento sarà assicurato da un impianto radiante a pavimento e da termoarredi a supporto nei bagni.</p>');
-        slidingBox.append('<ul class="intern-box-ul"><li class="intern-box-text">Negli appartamenti sarà installato un sistema di ventilazione al fine di assicurare il ricambio d\'aria necessario ad elevare lo standard abitativo.</li> <li class="intern-box-text">Predisposizione impanto di climatizzazione in ogni locale.</li></ul>');
+        slidingBox.append('<ul class="intern-box-ul"><li class="intern-box-text">Negli appartamenti sarà installato un sistema di ventilazione al fine di assicurare il ricambio d\'aria necessario ad elevare lo standard abitativo.</li> <li class="intern-box-text">Predisposizione impanto di climatizzazione in ogni locale.</li> <li class="intern-box-text">Impianto fotovoltaico per la produzionedi energia elettrica a servizio delle parti comuni.</li> <li class="intern-box-text">Predisposizione presa ricarica auto nei box.</li> <li class="intern-box-text">Basculante motorizzata.</li></ul>');
     }
 
     if($(this).attr("id") == "box-3") {
         slidingBox.append('<button class="close-button" onclick="onCloseButtonClick()" type="button">&#x2715</button>')
         slidingBox.append('<h3 class="intern-box-title">SMART HOME</h3>');
-        slidingBox.append('<ul class="intern-box-ul"> <li class="intern-box-text">Gli alloggi saranno dotati di un impianto di domotica base, comprendente comando centralizzato, luci, tapparelle e gestione carichi con possibilità di collegamento e gestione da remoto.</li> <li class="intern-box-text">Impianto fotovoltaico per la produzionedi energia elettrica a servizio delle parti comuni.</li> <li class="intern-box-text">Predisposizione impianto antintrusione.</li> <li class="intern-box-text">Realizzazione della sola predisposizione per la presa per ricarica auto elettrica nei box.</li> <li class="intern-box-text">Videocitofono Bticino.</li> </ul>');
+        slidingBox.append('<ul class="intern-box-ul"> <li class="intern-box-text">Gli alloggi saranno dotati di un impianto di domotica base, comprendente comando centralizzato, luci, tapparelle e gestione carichi con possibilità di collegamento e gestione da remoto.</li> <li class="intern-box-text">Predisposizione impianto antintrusione.</li> <li class="intern-box-text">Videocitofono Bticino con tecnologia wireless per effetuare collegamento da remoto.</li> <li class="intern-box-text">Termostati ambiente con tecnologia wireless per effettuare collegamento da remoto.</li> </ul>');
     }
 
     if($(this).attr("id") == "box-4") {
         slidingBox.append('<button class="close-button" onclick="onCloseButtonClick()" type="button">&#x2715</button>')
         slidingBox.append('<h3 class="intern-box-title">FINITURE</h3>');
-        slidingBox.append('<ul class="intern-box-ul"> <li class="intern-box-text">Il bagno principale sarà dotato di sanitari Ideal Standard sospesi serie Connect Air con tecnologia AquaBlade.</li> <li class="intern-box-text">Il bagno di servizio sarà dotato di sanitari Ideal Standard sospesi serie Life B con tecnologia AquaBlade.</li> <li class="intern-box-text">Ceramica di primarie aziende Italiane.</li> <li class="intern-box-text">Miscelatori Ideal Standard serie Ceraline.</li> <li class="intern-box-text">Pavimento in legno marca Berti.</li> </ul>');
+        slidingBox.append('<ul class="intern-box-ul"> <li class="intern-box-text">Il bagno principale sarà dotato di sanitari Ideal Standard sospesi serie Connect Air con tecnologia AquaBlade.</li> <li class="intern-box-text">Il bagno di servizio sarà dotato di sanitari Ideal Standard sospesi serie Life B con tecnologia AquaBlade.</li> <li class="intern-box-text">Ceramica di primarie aziende Italiane.</li> <li class="intern-box-text">Miscelatori Ideal Standard serie Ceraline.</li> <li class="intern-box-text">Pavimento in legno marca Berti.</li> <li class="intern-box-text">Impianto elettrico BTicino serie Livinglight.</li> <li class="intern-box-text">Serramenti in PVC dotati di sistema di microventilazione.</li> <li class="intern-box-text">Tapparelle in alluminio motorizzate.</li> </ul>');
     }
 
     if($(this).attr("id") == "box-5") {

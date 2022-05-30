@@ -219,7 +219,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     
 }
 
-#capitolato:hover{
+#capitolato:hover {
     color: #495e35;
 }
 
@@ -228,3 +228,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     width:100% ;
 }
 */
+
+.main-title {
+    padding-top: 3rem !important;
+}

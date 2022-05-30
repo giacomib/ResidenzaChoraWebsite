@@ -3466,8 +3466,8 @@
         min-height: 0;
     }
     .column_container>.column-inner {
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
     [class*="push-"] {
         left: 0;

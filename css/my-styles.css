@@ -127,6 +127,11 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     .little_maps {
         transform: rotate(90deg);
     }
+
+    #img-punti {
+        height: 100vh;
+        object-fit: cover;
+    }
 }
 
 .sc_services_item_title {
@@ -199,6 +204,11 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #img-punti {
+        height: auto;
+        object-fit: unset;
     }
 }
 

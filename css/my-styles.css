@@ -89,6 +89,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 
 #services-section .sc_services_item_featured_top {
     background-color: #495E35;
+    cursor: pointer;
 }
 #services-section .sc_services_item .sc_services_item_header {
     transition: all .5s;

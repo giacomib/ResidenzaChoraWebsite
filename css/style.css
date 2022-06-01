@@ -7604,8 +7604,8 @@ form .error_field {
     font-size: 0.8667em;
     line-height: 1.5em;
     padding: 1.5em;
-    color: #006818;
-    border: 1px solid #006818;
+    color: #026232;
+    border: 1px solid #026232;
     background-color: #d8ffd8;
     position: absolute;
     z-index: 1000;
@@ -15233,12 +15233,12 @@ label.required .sc_form_field_title:after {
 .tooltipster-base.tooltipster-light .tooltipster-content {
     padding: 1em 1em;
     border: none;
-    background-color: #616a41;
+    background-color: #026232;
     color: #fff;
 }
 
 .tooltipster-base.tooltipster-light .tooltipster-arrow span {
-    border-top-color: #616a41 !important;
+    border-top-color: #026232 !important;
 }
 
 .cq-hotspots .hotspot-item a.cq-tooltip span {

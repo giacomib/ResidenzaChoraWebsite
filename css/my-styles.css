@@ -52,7 +52,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 #services-section .sliding-box {
     position: relative;
     width: 50% !important;
-    background-color: #495E35;
+    background-color: #026232;
     top: 22%;
     left: -100%;
     z-index: 15;
@@ -88,7 +88,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 }
 
 #services-section .sc_services_item_featured_top {
-    background-color: #495E35;
+    background-color: #026232;
     cursor: pointer;
 }
 #services-section .sc_services_item .sc_services_item_header {
@@ -217,7 +217,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
-    background-color: #495E35 !important;
+    background-color: #026232 !important;
     color: white !important;
     font-size: large !important;
     width: 40px !important;
@@ -226,20 +226,17 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 }
 
 #capitolato {
-    color: #88b04b;
-    
+    color: #026232;
 }
 
 #capitolato:hover {
-    color: #495e35;
+    color: #026232;
 }
-
-/*
-.cq-hotspots {
-    width:100% ;
-}
-*/
 
 .main-title {
     padding-top: 3rem !important;
+}
+
+.titolo_colorato {
+    color: #026232 !important;
 }

@@ -4659,10 +4659,6 @@
     .mfp-title {
         line-height: 13px;
     }
-    /* Slider */
-    .slider_engine_revo .slide_title {
-        margin-top: 16px !important;
-    }
     .slider_engine_revo .slide_button {
         line-height: inherit !important;
         padding: 5px 7px 1px !important;

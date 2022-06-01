@@ -5,22 +5,13 @@
     <title>Windsor &#8211; Appartamenti moderni in un nuovo complesso residenziale</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" type="image/x-icon" href="images/cropped-fav-big-300x300.jpg" />
+    <link rel="icon" type="image/x-icon" href="images/logo e colore/A Chora Bianco.png" />
     <link rel="stylesheet" href="js/vendor/hotspot/css/style.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="js/vendor/hotspot/css/tooltipster.css" type="text/css" media="all">
     <link rel="stylesheet" href="js/vendor/mediaelement/css/mediaelementplayer.css" type="text/css" media="all">
     <link rel="stylesheet" href="js/vendor/revslider/public/assets/css/settings.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/my-styles.css" type="text/css">
     <style id="rs-plugin-settings-inline-css" type="text/css"></style>
-
-
-
-
-
-
-
-
-
 
     <link rel='stylesheet' href='js/vendor/swiper/swiper.min.css' type='text/css' media='all' />
     <link rel='stylesheet' href='js/vendor/magnific/magnific-popup.min.css' type='text/css' media='all' />
@@ -32,6 +23,86 @@
     <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/template-color.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/responsive.css' type='text/css' media='all' />
+
+    <style>
+        * {box-sizing: border-box;}
+        
+        .img-zoom-container {
+          position: relative;
+        }
+        
+        .img-zoom-lens {
+          position: absolute;
+          border: 1px solid #d4d4d4;
+          /*set the size of the lens:*/
+          width: 40px;
+          height: 40px;
+        }
+        
+        .img-zoom-result {
+          border: 1px solid #d4d4d4;
+          /*set the size of the result div:*/
+          width: 300px;
+          height: 300px;
+        }
+    </style>
+    <script>
+        function imageZoom(imgID, resultID) {
+          var img, lens, result, cx, cy;
+          img = document.getElementById(imgID);
+          result = document.getElementById(resultID);
+          /*create lens:*/
+          lens = document.createElement("DIV");
+          lens.setAttribute("class", "img-zoom-lens");
+          /*insert lens:*/
+          img.parentElement.insertBefore(lens, img);
+          /*calculate the ratio between result DIV and lens:*/
+          cx = result.offsetWidth / lens.offsetWidth;
+          cy = result.offsetHeight / lens.offsetHeight;
+          /*set background properties for the result DIV:*/
+          result.style.backgroundImage = "url('" + img.src + "')";
+          result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+          /*execute a function when someone moves the cursor over the image, or the lens:*/
+          lens.addEventListener("mousemove", moveLens);
+          img.addEventListener("mousemove", moveLens);
+          /*and also for touch screens:*/
+          lens.addEventListener("touchmove", moveLens);
+          img.addEventListener("touchmove", moveLens);
+          function moveLens(e) {
+            var pos, x, y;
+            /*prevent any other actions that may occur when moving over the image:*/
+            e.preventDefault();
+            /*get the cursor's x and y positions:*/
+            pos = getCursorPos(e);
+            /*calculate the position of the lens:*/
+            x = pos.x - (lens.offsetWidth / 2);
+            y = pos.y - (lens.offsetHeight / 2);
+            /*prevent the lens from being positioned outside the image:*/
+            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+            if (x < 0) {x = 0;}
+            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+            if (y < 0) {y = 0;}
+            /*set the position of the lens:*/
+            lens.style.left = x + "px";
+            lens.style.top = y + "px";
+            /*display what the lens "sees":*/
+            result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+          }
+          function getCursorPos(e) {
+            var a, x = 0, y = 0;
+            e = e || window.event;
+            /*get the x and y positions of the image:*/
+            a = img.getBoundingClientRect();
+            /*calculate the cursor's x and y coordinates, relative to the image:*/
+            x = e.pageX - a.left;
+            y = e.pageY - a.top;
+            /*consider any page scrolling:*/
+            x = x - window.pageXOffset;
+            y = y - window.pageYOffset;
+            return {x : x, y : y};
+          }
+        }
+    </script>
 
 </head>
 
@@ -56,8 +127,12 @@
                                                     data-transform_out="opacity:0;s:300;" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                                 </div>
 
+                                                <img class="tp-caption  slide_title" data-x="center" data-top="40%" data-hoffset="" data-voffset="-20" data-width="['400']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:500;e:Power2.easeOut;"
+                                                data-transform_out="opacity:0;s:300;" data-start="2400" data-splitin="none" data-splitout="none" data-responsive_offset="on" src="images/logo e colore/Residenza Chora Logo Bianco.png" style="width: 100px;">
+
                                                 <h1 class="tp-caption   tp-resizeme  slide_title" id="slide-1-layer-1" data-x="center" data-hoffset="" data-y="center" data-voffset="-20" data-width="['1024']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:500;e:Power2.easeOut;"
-                                                    data-transform_out="opacity:0;s:300;" data-start="2400" data-splitin="none" data-splitout="none" data-responsive_offset="on">SOLUZIONI ABITATIVE CHE SI MUOVONO NEL PRESENTE PER ESSERE GIà NEL FUTURO</h1>
+                                                    data-transform_out="opacity:0;s:300;" data-start="2400" data-splitin="none" data-splitout="none" data-responsive_offset="on">
+                                                    SOLUZIONI ABITATIVE CHE SI MUOVONO NEL PRESENTE PER ESSERE GIà NEL FUTURO</h1>
 
                                                 <a href="tel:111111111"><div class="tp-caption rev-btn  tp-resizeme  theme_button slide_button green-btn" id="slide-1-layer-2" data-x="center" data-hoffset="" data-y="center" data-voffset="200" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;"
                                                     data-style_hover="c:#88b04b;bg:rgba(255, 255, 255, 1.00);" data-transform_in="y:50px;opacity:0;s:500;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;" data-start="2700" data-splitin="none"
@@ -91,7 +166,9 @@
                         <a href="#" class="toc_menu_description menu_mobile_description">
                             <span class="toc_menu_description_title">Home</span>
                         </a>
-                        <a class="toc_menu_icon icon-home-2" href="#" style = "border-top-color: #495e35;"></a>
+                        <a class="toc_menu_icon" href="#" style = "border-top-color: #026232;">
+                            <img src="images/logo e colore/A Chora Bianco.png" style="vertical-align: middle; width: 40px;"></img>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -310,7 +387,7 @@
                                                         <div class="sc_promo_text promo_text_right">
                                                             <div class="sc_promo_text_inner">
                                                                 <h6 class="sc_item_subtitle sc_promo_subtitle sc_align_default sc_item_title_style_default">Appartamenti di lusso</h6>
-                                                                <h2 class="sc_item_title sc_promo_title sc_align_default sc_item_title_style_default">Il Progetto</h2>
+                                                                <h2 class="sc_item_title sc_promo_title sc_align_default sc_item_title_style_default titolo_colorato">Il Progetto</h2>
                                                                 <div class="sc_item_descr sc_promo_descr sc_align_default" style="margin-top: 0px;">Residenza Chora è l'espressione di un concept abitativo moderno in
                                                                     cui il benessere della persona e lo stile di vita contemporaneo sono al centro
                                                                     del progetto. <br>
@@ -388,7 +465,7 @@
                             <section class="no-col-padding columns-stretch content-middle" style="min-height: 50vh;">
                                 <div class="container">
                                     <div class="row">
-                                        <a id="sc_anchor_new_complex_2" class="sc_anchor sc_anchor_default" title="Design & Qualità" data-icon="icon-star-2" data-url="#new_complex_2"></a>
+                                        <a id="sc_anchor_new_complex_2" class="sc_anchor sc_anchor_default " title="Design & Qualità" data-icon="icon-star-2" data-url="#new_complex_2"></a>
                                         <div class="columns_wrap">
                                             <div class="column_container column-1_1">
                                                 <div class="column-inner">
@@ -436,7 +513,7 @@
                                                         <!--<div class="sc_promo_text" style="top: 50%; transform: translateY(-50%); width: 45%;"></div>-->
                                                             <div class="sc_promo_text_inner">
                                                                 <h6 class="sc_item_subtitle sc_promo_subtitle sc_align_default sc_item_title_style_default">Gli appartamenti</h6>
-                                                                <h2 class="sc_item_title sc_promo_title sc_align_default sc_item_title_style_default">Design e qualità</h2>
+                                                                <h2 class="sc_item_title sc_promo_title sc_align_default sc_item_title_style_default titolo_colorato">Design e qualità</h2>
                                                                 <!--<div class="sc_item_descr sc_promo_descr sc_align_default">L’accurata selezione di colori e finiture assicura un’autenticità stilistica senza eguali, mentre le più moderne tecnologie garantiscono prestazioni tecniche, pratiche e funzionali di altissimo livello.
                                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                                                 </div>-->
@@ -472,7 +549,7 @@
                                                             <div class="sc_promo_text">
                                                                 <div class="sc_promo_text_inner">
                                                                     <!--<h6 class="sc_item_subtitle sc_promo_subtitle sc_align_center sc_item_title_style_shadow">02</h6>-->
-                                                                    <h2 class="sc_item_title sc_promo_title sc_align_center sc_item_title_style_shadow" style="color: #88b04b;">Foto</h2>
+                                                                    <h2 class="sc_item_title sc_promo_title sc_align_center sc_item_title_style_shadow" style="color: #026232;">Foto</h2>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -569,7 +646,7 @@
                             <section class="no-col-padding columns-stretch content-middle">
                                 <div class="container">
                                     <div class="row">
-                                        <a id="sc_anchor_plans" class="sc_anchor sc_anchor_default" title="Pianta" data-icon="icon-floor" data-url=""></a>
+                                        <a id="sc_anchor_plans" class="sc_anchor sc_anchor_default titolo_colorato" title="Pianta" data-icon="icon-floor" data-url=""></a>
                                         <div class="columns_wrap">
                                             <div class="column_container column-1_1">
                                                 <div class="column-inner">
@@ -932,6 +1009,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--<div class="img-zoom-container">
+                                    <div id="myresult" class="img-zoom-result"></div>
+                                </div>-->
+                                
                             </section>
 
                             <section class="no-col-padding no-row-margin">
@@ -958,7 +1039,7 @@
                                                     <div class="height_large"></div>
                                                     <div class="scheme_dark sc_content sc_content_default">
                                                         <h6 class="sc_item_subtitle sc_content_subtitle sc_align_default sc_item_title_style_default">Servizi</h6>
-                                                        <h2 class="sc_item_title sc_content_title sc_align_default sc_item_title_style_default" style="color:#495e35">APPARTAMENTI PENSATI PER SEMPLIFICARE LA VITA</h2>
+                                                        <h2 class="sc_item_title sc_content_title sc_align_default sc_item_title_style_default" style="color:#026232">APPARTAMENTI PENSATI PER SEMPLIFICARE LA VITA</h2>
                                                     </div>
                                                     <div class="height_small"></div>
                                                     <div class="row">
@@ -1204,8 +1285,8 @@
                                                             <div class="sc_promo_text_inner">
                                                                 <h6 class="sc_item_subtitle sc_promo_subtitle sc_align_default sc_item_title_style_default"></h6>
                                                                 <!--<h2 class="sc_item_title sc_promo_title sc_align_default sc_item_title_style_default">Introducing a new residential complex</h2>-->
-                                                                <h2 class="sc_item_title sc_promo_title sc_align_default sc_item_title_style_default">Location</h2>
-                                                                <div class="sc_item_descr sc_promo_descr sc_align_default">Chora è circondato da importanti aree verdi ed è situato vicino all'<a href="https://sites.google.com/view/olonagreenway/home" style="color: #88b04b;">olona greenway</a>: una lunga strada in mezzo ai boschi
+                                                                <h2 class="sc_item_title sc_promo_title sc_align_default sc_item_title_style_default titolo_colorato">Location</h2>
+                                                                <div class="sc_item_descr sc_promo_descr sc_align_default">Chora è circondato da importanti aree verdi ed è situato vicino all'<a href="https://sites.google.com/view/olonagreenway/home" style="color: #026232; font-weight: bolder;">olona greenway</a>: una lunga strada in mezzo ai boschi
                                                                     e ai campi dove si può passeggiare in tranquillità ed essere in contatto con la natura.
                                                                     La presenza di alberi e di altri elementi della natura hanno un effetto positivo sul nostro benessere e circondarsi dal verde aumenta anche la qualità dell'attività fisica, con benefici anche sulla nostra salute.
                                                                 </div>
@@ -1275,14 +1356,14 @@
                                                     <div class="height_large"></div>
                                                     <div class="height_small hide_on_mobile"></div>
                                                     <!--<div class="height_huge hide_on_mobile"></div>-->
-                                                    <h3 class="trx_addons_no_margins sc_align_center" style="color: #88b04b;">Contatti</h3>
+                                                    <h3 class="trx_addons_no_margins sc_align_center titolo_colorato">Contatti</h3>
                                                     <div class="height_small"></div>
                                                     <div class="sc_content sc_content_default" style="padding-top: 0;">
                                                         <div class="sc_content_container">
                                                             <div class="sc_align_center">
                                                                 Commercializzato da:<br/>
                                                                 <span class="trx_addons_dark">KOS S.R.L. Home Solution</span>
-                                                                <br/> Piazza Monumento<br/> Legnano, MI 20025<br/> Telefono: <span class="trx_addons_dark"><a href="tel:+1234567890" style="color: #88b04b;">123-456-7890</a> <br/></span> Email: <span class="trx_addons_dark"><a href="mailto:info@yoursite.com" style="color: #88b04b;">info@yoursite.com</a>
+                                                                <br/> Piazza Monumento<br/> Legnano, MI 20025<br/> Telefono: <span class="trx_addons_dark"><a href="tel:+1234567890" style="color: #026232;">123-456-7890</a> <br/></span> Email: <span class="trx_addons_dark"><a href="mailto:info@yoursite.com" style="color: #026232;">info@yoursite.com</a>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -1308,7 +1389,7 @@
                                                 <div class="column-inner ph20p">
                                                     <!--<div class="height_large"></div>-->
                                                     <div class="height_small"></div>
-                                                    <h3 class="trx_addons_no_margins sc_align_center" style="color: #88b04b;">Contattaci</h3>
+                                                    <h3 class="trx_addons_no_margins sc_align_center titolo_colorato">Contattaci</h3>
                                                     <div class="height_small"></div>
                                                     <div class="sc_content sc_content_default" style="padding-top: 0;">
                                                         <div class="sc_content_container">
@@ -1387,7 +1468,6 @@
                                     </div>
                                 </div>
                             </section>
-
                         </div>
                     </article>
                 </div>
@@ -1397,7 +1477,7 @@
                     <div class="copyright_wrap_inner">
                         <div class="content_wrap">
                             <div class="copyright_text">
-                                <a target="_blank" href="https://makudaconsulting.com/" style="color: #88b04b;"> Makuda </a>© <span id="date"></span> . All rights reserved. Terms of use and Privacy Policy
+                                <a target="_blank" href="https://makudaconsulting.com/" class="titolo_colorato"> Makuda </a>© <span id="date"></span> . All rights reserved. Terms of use and Privacy Policy
                             </div>
                         </div>
                     </div>
@@ -1437,6 +1517,11 @@
 
 
     <a href="#" class="trx_addons_scroll_to_top trx_addons_icon-up" title="Scroll to top"></a>
+
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage", "myresult");
+    </script>
 </body>
 
 </html>

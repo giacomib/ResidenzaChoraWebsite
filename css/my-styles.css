@@ -200,6 +200,10 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     height: auto !important;
 }
 
+.cqtooltip-wrapper img {
+    width: calc(100vw - 90px);
+}
+
 @media screen and (max-width: 600px) {
     #img_cartina_greenway {
         display: block;
@@ -210,6 +214,10 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     #img-punti {
         height: auto;
         object-fit: unset;
+    }
+    
+    .cqtooltip-wrapper img {
+        width: 100%;
     }
 }
 

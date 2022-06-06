@@ -1399,7 +1399,7 @@ function runSliderAnimations(container) {
 				    paginationType: slider.hasClass('slider_pagination') && slider.data('pagination') ? slider.data('pagination') : 'bullets',
 			        nextButton: slider.hasClass('slider_controls') ? '#'+cont_id+' .slider_next' : false,
 			        prevButton: slider.hasClass('slider_controls') ? '#'+cont_id+' .slider_prev' : false,
-			        autoplay: false,
+			        autoplay: slider.hasClass('slider_noautoplay') || interval==0	? false : parseInt(interval),
         			autoplayDisableOnInteraction: true,
 					initialSlide: 0,
 					slidesPerView: spv,
@@ -1437,27 +1437,10 @@ function runSliderAnimations(container) {
 						slider.attr('data-busy', 0);
 					}
 				});
+				slider.attr('data-busy', 1).animate({'opacity':1}, 'fast');
+				setTimeout(function() { slider.attr('data-busy', 0); }, 300);
 			});
 	}
-	$(window).on("scroll", function() {
-		if (container.find('.slider_swiper').length > 0) {
-			container.find('.slider_swiper')
-				.each(function () {
-					"use strict";
-					const slider = $(this);
-					if(!slider.hasClass("started")) {
-						const scroll = $(window).scrollTop();
-						const offset = slider.offset().top;
-						if(scroll + window.innerWidth > offset) {
-							console.log($(this))
-							slider.attr('data-busy', 1).animate({'opacity':1}, 'fast');
-							setTimeout(function() { slider.attr('data-busy', 0); }, 300);
-							slider.addClass("started");
-						}
-					}
-				})
-			}
-	});
 }
 
 // Init previously hidden sliders with engine=swiper

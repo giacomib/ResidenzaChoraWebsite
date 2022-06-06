@@ -353,6 +353,10 @@
                                                     <div class="height_large"></div>
                                                     
                                 
+                                                    <!-- <div class="img-zoom-container">
+                                                        <img id="myimage" src="images/Piantine_2/PIANO TERRA dx.png" width="300" height="240" alt="Girl">
+                                                        <div id="myresult" class="img-zoom-result"></div>
+                                                    </div> -->
                                                     <div class="row">
                                                         <div class="columns_wrap">
                                                             <div class="column_container column-1_1 scheme_dark">
@@ -649,7 +653,7 @@
                                                                                                             <div class="img-zoom-container">
                                                                                                                 <img id="myimage" src="images/Piantine_2/PIANO TERRA dx.png" width="300" height="240" alt="Girl">
                                                                                                                 <div id="myresult" class="img-zoom-result"></div>
-                                                                                                              </div>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </figure>
                                                                                                 </div>
@@ -1488,6 +1492,11 @@
           img.addEventListener("touchmove", moveLens);
           function moveLens(e) {
             var pos, x, y;
+            console.log(result.offsetWidth, lens.offsetWidth, result.offsetWidth / lens.offsetWidth, cx)
+            if(isNaN(cx) || isNaN(cy)) {
+                cx = result.offsetWidth / lens.offsetWidth;
+                cy = result.offsetHeight / lens.offsetHeight;
+            }
             /*prevent any other actions that may occur when moving over the image:*/
             e.preventDefault();
             /*get the cursor's x and y positions:*/

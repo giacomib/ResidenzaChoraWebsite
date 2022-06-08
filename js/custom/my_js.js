@@ -3,6 +3,7 @@ $(document).ready(() => {
     $(".submit-form").click(checkControl);
     $(".sc_services_item").click(onServiceClick);
     $(".dark-box").click(onDarkBoxClick);
+    $(".img-zoom-result").hide();
 })
 
 function onServiceClick() {

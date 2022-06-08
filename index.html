@@ -24,29 +24,6 @@
     <link rel='stylesheet' href='css/template-color.css' type='text/css' media='all' />
     <link rel='stylesheet' href='css/responsive.css' type='text/css' media='all' />
 
-    <style>
-        * {box-sizing: border-box;}
-        
-        .img-zoom-container {
-          position: relative;
-        }
-        
-        .img-zoom-lens {
-          position: absolute;
-          border: 1px solid #d4d4d4;
-          /*set the size of the lens:*/
-          width: 40px;
-          height: 40px;
-        }
-        
-        .img-zoom-result {
-          border: 1px solid #d4d4d4;
-          /*set the size of the result div:*/
-          width: 380px;
-          height: 400px;
-        }
-    </style>
-
 </head>
 
 <body class="home page preloader blog_style_excerpt sidebar_hide expand_content remove_margins header_style_header-1 header_title_off menu_style_left menu_style_side anchor_slide">
@@ -591,7 +568,7 @@
                             </section>
 
                             <section class="no-col-padding columns-stretch content-middle">
-                                <div class="container">
+                                <div class="container" id="custom_container_1">
                                     <div class="row">
                                         <a id="sc_anchor_plans" class="sc_anchor sc_anchor_default titolo_colorato" title="Pianta" data-icon="icon-floor" data-url=""></a>
                                         <div class="columns_wrap">
@@ -643,13 +620,12 @@
 																											</span>
                                                                                                         </li>
                                                                                                     </ul>
-                                                                                                    <div class="height_large"></div>
                                                                                                     <div id="zoom_piantina_1" class="img-zoom-result hide_on_mobile"></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="column_container column-2_3">
                                                                                                 <div class="column-inner">
-                                                                                                    <figure class="my_figure" style="padding-top: 100px; padding-left: 0;">
+                                                                                                    <figure class="my_figure" id="map_1">
                                                                                                         <div>
                                                                                                             <div class="img-zoom-container">
                                                                                                                 <img id="piantina_1" src="images/Piantine_2/PIANO TERRA dx.png">
@@ -697,7 +673,6 @@
 																											</span>
                                                                                                         </li>
                                                                                                     </ul>
-                                                                                                    <div class="height_large"></div>
                                                                                                     <div id="zoom_piantina_2" class="img-zoom-result hide_on_mobile"></div>
                                                                                                     <!--
                                                                                                     <div class="sc_item_button sc_button_wrap">
@@ -756,17 +731,7 @@
 																											</span>
                                                                                                         </li>
                                                                                                     </ul>
-                                                                                                    <div class="height_large"></div>
                                                                                                     <div id="zoom_piantina_3" class="img-zoom-result hide_on_mobile"></div>
-                                                                                                    <!--
-                                                                                                    <div class="sc_item_button sc_button_wrap">
-                                                                                                        <a href="#" class="sc_button sc_button_default sc_button_size_normal sc_button_icon_left">
-                                                                                                            <span class="sc_button_text">
-																												<span class="sc_button_title">Prenota un tour</span>
-                                                                                                            </span>
-                                                                                                        </a>
-                                                                                                    </div>
-                                                                                                    -->
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="column_container column-2_3">
@@ -815,7 +780,6 @@
 																											</span>
                                                                                                         </li>
                                                                                                     </ul>
-                                                                                                    <div class="height_large"></div>
                                                                                                     <div id="zoom_piantina_4" class="img-zoom-result hide_on_mobile"></div>
                                                                                                     <!--
                                                                                                     <div class="sc_item_button sc_button_wrap">
@@ -874,7 +838,6 @@
 																											</span>
                                                                                                         </li>
                                                                                                     </ul>
-                                                                                                    <div class="height_large"></div>
                                                                                                     <div id="zoom_piantina_5" class="img-zoom-result hide_on_mobile"></div>
                                                                                                     <!--
                                                                                                     <div class="sc_item_button sc_button_wrap">
@@ -933,7 +896,6 @@
 																											</span>
                                                                                                         </li>
                                                                                                     </ul>
-                                                                                                    <div class="height_large"></div>
                                                                                                     <div id="zoom_piantina_6" class="img-zoom-result hide_on_mobile"></div>
                                                                                                     <!--
                                                                                                     <div class="sc_item_button sc_button_wrap">
@@ -1482,71 +1444,88 @@
 
     <script>
         function imageZoom(imgID, resultID) {
-          var img, lens, result, cx, cy;
-          img = document.getElementById(imgID);
-          result = document.getElementById(resultID);
-          /*create lens:*/
-          lens = document.createElement("DIV");
-          lens.setAttribute("class", "img-zoom-lens");
-          /*insert lens:*/
-          img.parentElement.insertBefore(lens, img);
-          /*calculate the ratio between result DIV and lens:*/
-          cx = result.offsetWidth / lens.offsetWidth;
-          cy = result.offsetHeight / lens.offsetHeight;
+            var img, lens, result, cx, cy;
+            img = document.getElementById(imgID);
+            result = document.getElementById(resultID);
 
-          /*set background properties for the result DIV:*/
-          result.style.backgroundImage = "url('" + img.src + "')";
-          result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+            /*create lens:*/
+            lens = document.createElement("DIV");
+            lens.setAttribute("class", "img-zoom-lens");
 
-          /*execute a function when someone moves the cursor over the image, or the lens:*/
-          lens.addEventListener("mousemove", moveLens);
-          img.addEventListener("mousemove", moveLens);
-          /*and also for touch screens:*/
-          //lens.addEventListener("touchmove", moveLens);
-          //img.addEventListener("touchmove", moveLens);
+            /*insert lens:*/
+            img.parentElement.insertBefore(lens, img);
 
-          function moveLens(e) {
-            //console.log("ciao");
-            var pos, x, y;
-            if(isNaN(cx) || isNaN(cy)) {
-                cx = result.offsetWidth / lens.offsetWidth;
-                cy = result.offsetHeight / lens.offsetHeight;
-                result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+            /*calculate the ratio between result DIV and lens:*/
+            cx = result.offsetWidth / lens.offsetWidth;
+            cy = result.offsetHeight / lens.offsetHeight;
+
+            /*set background properties for the result DIV:*/
+            result.style.backgroundImage = "url('" + img.src + "')";
+            result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+
+            /*execute a function when someone moves the cursor over the image, or the lens:*/
+            lens.addEventListener("mousemove", moveLens);
+            img.addEventListener("mousemove", moveLens);
+            lens.addEventListener("mouseenter", showZoom);
+            lens.addEventListener("mouseleave", hideZoom);
+            /*and also for touch screens:*/
+            //lens.addEventListener("touchmove", moveLens);
+            //img.addEventListener("touchmove", moveLens);
+
+            function moveLens(e) {
+                //rendo visibile il div
+                //document.getElementById("zoom_piantina_1").show();
+                //console.log("ciao");
+                var pos, x, y;
+                if(isNaN(cx) || isNaN(cy)) {
+                    cx = result.offsetWidth / lens.offsetWidth;
+                    cy = result.offsetHeight / lens.offsetHeight;
+                    result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+                }
+                /*prevent any other actions that may occur when moving over the image:*/
+                e.preventDefault();
+                /*get the cursor's x and y positions:*/
+                pos = getCursorPos(e);
+                /*calculate the position of the lens:*/
+                x = pos.x - (lens.offsetWidth / 2);
+                y = pos.y - (lens.offsetHeight / 2);
+                /*prevent the lens from being positioned outside the image:*/
+                if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+                if (x < 0) {x = 0;}
+                if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+                if (y < 0) {y = 0;}
+                /*set the position of the lens:*/
+                lens.style.left = x + "px";
+                lens.style.top = y + "px";
+                /*display what the lens "sees":*/
+                result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+                //result.style.backgroundPosition = "-" + (event.clientX) + "px -" + (event.clientY) + "px";
             }
-            /*prevent any other actions that may occur when moving over the image:*/
-            e.preventDefault();
-            /*get the cursor's x and y positions:*/
-            pos = getCursorPos(e);
-            /*calculate the position of the lens:*/
-            x = pos.x - (lens.offsetWidth / 2);
-            y = pos.y - (lens.offsetHeight / 2);
-            /*prevent the lens from being positioned outside the image:*/
-            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-            if (x < 0) {x = 0;}
-            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
-            if (y < 0) {y = 0;}
-            /*set the position of the lens:*/
-            lens.style.left = x + "px";
-            lens.style.top = y + "px";
-            /*display what the lens "sees":*/
-            result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
-            //result.style.backgroundPosition = "-" + (event.clientX) + "px -" + (event.clientY) + "px";
-          }
 
-          function getCursorPos(e) {
-            var a, x = 0, y = 0;
-            e = e || window.event;
-            /*get the x and y positions of the image:*/
-            a = img.getBoundingClientRect();
-            /*calculate the cursor's x and y coordinates, relative to the image:*/
-            x = e.pageX - a.left;
-            y = e.pageY - a.top;
-            /*consider any page scrolling:*/
-            x = x - window.pageXOffset;
-            y = y - window.pageYOffset;
-            return {x : x, y : y};
-          }
+            function getCursorPos(e) {
+                var a, x = 0, y = 0;
+                e = e || window.event;
+                /*get the x and y positions of the image:*/
+                a = img.getBoundingClientRect();
+                /*calculate the cursor's x and y coordinates, relative to the image:*/
+                x = e.pageX - a.left;
+                y = e.pageY - a.top;
+                /*consider any page scrolling:*/
+                x = x - window.pageXOffset;
+                y = y - window.pageYOffset;
+                return {x : x, y : y};
+            }
+
+            function showZoom() {
+                $(".img-zoom-result").show();
+            }
+
+            function hideZoom() {
+                $(".img-zoom-result").hide();
+            }
+
         }
+
         // Initiate zoom effect:
         if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
             imageZoom("piantina_1", "zoom_piantina_1");
@@ -1556,6 +1535,7 @@
             imageZoom("piantina_5", "zoom_piantina_5");
             imageZoom("piantina_6", "zoom_piantina_6");
         }
+        
     </script>
 </body>
 

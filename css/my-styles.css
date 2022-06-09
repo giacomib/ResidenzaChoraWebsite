@@ -258,21 +258,26 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     position: absolute;
     border: 1px solid #d4d4d4;
     /*set the size of the lens:*/
-    width: 150px;
-    height: 150px;
+    width: 20vw;
+    height: 250px;
     z-index: 100;
 }
 
 .img-zoom-result {
     border: 1px solid #d4d4d4;
-    width: 500px;
+    width: 40vw;
     height: 500px;
-    position: absolute;
+    position: fixed;
     /* bottom: 200px; */
     top: 0;
+    left: 0;
     z-index: 100;
     background-color: white;
     margin-top: 50px;
+}
+
+.img-zoom-container img {
+    max-height: 70vh;
 }
 
 /*#custom_container_1 {

@@ -109,6 +109,12 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 }
 
 @media screen and (min-width: 600px) {
+    #container_1 {
+        bottom: 100px !important;
+    }
+    #custom_container_1{
+        width: calc(100vw - 90px) !important;
+    }
     .main-img {
         margin: 100px 0px 0px !important;
     }
@@ -270,7 +276,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     position: fixed;
     /* bottom: 200px; */
     top: 0;
-    left: 0;
+    padding-left: 15px;
     z-index: 100;
     background-color: white;
     margin-top: 50px;

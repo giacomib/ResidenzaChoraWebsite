@@ -216,23 +216,6 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     width: calc(100vw - 90px);
 }
 
-@media screen and (max-width: 600px) {
-    #img_cartina_greenway {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #img-punti {
-        height: auto;
-        object-fit: unset;
-    }
-    
-    .cqtooltip-wrapper img {
-        width: 100%;
-    }
-}
-
 .close-button {
     position: absolute !important;
     top: 0 !important;
@@ -275,18 +258,51 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     position: absolute;
     border: 1px solid #d4d4d4;
     /*set the size of the lens:*/
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
+    z-index: 100;
 }
 
 .img-zoom-result {
     border: 1px solid #d4d4d4;
     width: 500px;
     height: 500px;
-    position: relative;
-    bottom: 200px;
+    position: absolute;
+    /* bottom: 200px; */
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    margin-top: 50px;
 }
 
 /*#custom_container_1 {
     width: 1200px !important;
 }*/
+
+@media screen and (max-width: 600px) {
+    #img_cartina_greenway {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #img-punti {
+        height: auto;
+        object-fit: unset;
+    }
+    
+    .cqtooltip-wrapper img {
+        width: 100%;
+    }
+    .img-zoom-result,
+    .img-zoom-lens {
+        display: none !important;
+    }
+    .trx_addons_list_parameters {
+        padding-bottom: 25px;
+    }
+    /* .img-zoom-lens {
+        width: 50px;
+        height: 50px;
+    } */
+}

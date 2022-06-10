@@ -27,6 +27,11 @@
 </head>
 
 <body class="home page preloader blog_style_excerpt sidebar_hide expand_content remove_margins header_style_header-1 header_title_off menu_style_left menu_style_side anchor_slide">
+    <div class="images-modal-container">
+        <div class="images-modal">
+            <img src="images/Foto_2/01.jpg" alt="Immagine full screen">
+        </div>
+    </div>
     <div class="body_wrap">
         <div class="page_wrap">
             <header class="top_panel top_panel_style_1 without_bg_image scheme_side">
@@ -408,27 +413,27 @@
                                                                 <div class="swiper-wrapper">
                                                                     <div class="swiper-slide slider_image_1" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Apartment&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Environment&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;"
                                                                         data-date="July 16, 2016">
-                                                                        <img src = "images/Interni_2/SOGGIORNO_1.jpg"></img>
+                                                                        <img src = "images/Interni_2/SOGGIORNO_1.jpg" class="zoomE"></img>
                                                                     </div>
                                                                     <div class="swiper-slide slider_image_2" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                         data-date="July 12, 2016">
-                                                                        <img src = "images/Interni_2/VLP10_2.jpg"></img>
+                                                                        <img src = "images/Interni_2/VLP10_2.jpg" class="zoomE"></img>
                                                                     </div>
                                                                     <div class="swiper-slide slider_image_3" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Apartment&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Views&lt;/a&gt;"
                                                                         data-date="July 9, 2016">
-                                                                        <img src = "images/Interni_2/CUCINA_3.jpg"></img>
+                                                                        <img src = "images/Interni_2/CUCINA_3.jpg" class="zoomE"></img>
                                                                     </div>
                                                                     <div class="swiper-slide slider_image_4" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Environment&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Views&lt;/a&gt;"
                                                                         data-date="July 4, 2016">
-                                                                        <img src = "images/Interni_2/VLP09_4.jpg"></img>
+                                                                        <img src = "images/Interni_2/VLP09_4.jpg" class="zoomE"></img>
                                                                     </div>
                                                                     <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                         data-date="July 2, 2016">
-                                                                        <img src = "images/Interni_2/CAMERA DOPPIA_5.jpg" style="object-fit: fit;"></img>
+                                                                        <img src = "images/Interni_2/CAMERA DOPPIA_5.jpg" style="object-fit: fit;" class="zoomE"></img>
                                                                     </div>
                                                                     <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                         data-date="July 2, 2016">
-                                                                        <img src = "images/Interni_2/CAMERA SINGOLA_6.jpg" style="object-fit: fit;"></img>
+                                                                        <img src = "images/Interni_2/CAMERA SINGOLA_6.jpg" style="object-fit: fit;" class="zoomE"></img>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1538,27 +1543,62 @@
 
     <script>
         window.onload = () => {
-            // (A) GET ALL IMAGES
-            let all = document.getElementsByClassName("zoomE");
-            
-            // (B) CLICK TO GO FULLSCREEN
-            if (all.length>0) { for (let i of all) {
-                i.onclick = () => {
-                    // (B1) EXIT FULLSCREEN
-                    if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
-                        if (document.exitFullscreen) { document.exitFullscreen(); }
-                        else { document.webkitCancelFullScreen(); }
-                    }
-                
-                    // (B2) ENTER FULLSCREEN
-                    else {
-                        if (i.requestFullscreen) { i.requestFullscreen(); }
-                        else { i.webkitRequestFullScreen(); }
-                    }
-                };
-            }}
+            $(".zoomE").click(function() {
+                const imgName = $(this).attr("src");
+                $(".images-modal img").attr("src", imgName);
+                $(".images-modal-container").fadeIn();
+                disableScroll();
+            });
+            $(".images-modal").click(function(e) {
+                e.stopPropagation();
+            });
+            $(".images-modal-container").click(function(e) {
+                $(this).fadeOut();
+                enableScroll();
+            });
         };
 
+        // left: 37, up: 38, right: 39, down: 40,
+        // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+        var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+        function preventDefault(e) {
+            e.preventDefault();
+        }
+
+        function preventDefaultForScrollKeys(e) {
+            if (keys[e.keyCode]) {
+                preventDefault(e);
+                return false;
+            }
+        }
+
+        // modern Chrome requires { passive: false } when adding event
+        var supportsPassive = false;
+        try {
+        window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+            get: function () { supportsPassive = true; } 
+        }));
+        } catch(e) {}
+
+        var wheelOpt = supportsPassive ? { passive: false } : false;
+        var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+        // call this to Disable
+        function disableScroll() {
+            window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+            window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+            window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+            window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+        }
+
+        // call this to Enable
+        function enableScroll() {
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+            window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
+            window.removeEventListener('touchmove', preventDefault, wheelOpt);
+            window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+        }
     </script>
 </body>
 

@@ -4,8 +4,7 @@
 //////////////////////////
 
 //Your E-mail
-
-$your_email = 'test@gmail.com';
+$your_email = 'info@residenzachora.com';
 
 //Default Subject if 'subject' field does not exist
 $default_subject = 'From My Contact Form';

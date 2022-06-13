@@ -4,9 +4,18 @@ $(document).ready(() => {
     $(".sc_services_item").click(onServiceClick);
     $(".dark-box").click(onDarkBoxClick);
     $(".img-zoom-result").hide();
+
+    /*
+    $("#img-punti").css({
+        'width': calc(100 + 'vw' - $(".menu_side_wrap.scheme_side").width())
+    });
+    */
 })
 
 function onServiceClick() {
+    //prima di aprire la sezione, riporto la visualizzazione al centro dell'animazione
+    let top = document.getElementById("services-section").offsetTop;
+    window.scrollTo(0, top);
 
     let slidingBox = $("#services-section .sliding-box");
     slidingBox.empty();

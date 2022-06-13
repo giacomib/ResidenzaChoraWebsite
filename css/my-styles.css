@@ -154,12 +154,6 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     height: auto !important;
 }
 
-
-.cqtooltip-wrapper img {
-    width: calc(100vw - 90px)
-}
-
-
 .close-button {
     position: absolute !important;
     top: 0 !important;
@@ -258,6 +252,26 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     width: 100% !important;
 }
 
+#img_punti {
+    height: 100vh;
+    object-fit: unset;
+}
+
+@media screen and (min-width: 1345px) {
+    #img_punti {
+        height: 100vh;
+        width: calc(100vw - 90px) !important;
+        object-fit: unset;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #img_punti {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
 
 @media screen and (max-width: 600px) {
 
@@ -276,15 +290,7 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
     .main-img {
         margin: 30px 0px 0px !important;
     }
-
-    #img-punti {
-        height: auto;
-        object-fit: unset;
-    }
     
-    .cqtooltip-wrapper img {
-        width: 100%;
-    }
     .img-zoom-result,
     .img-zoom-lens {
         display: none !important;
@@ -363,11 +369,6 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 
     .little_maps {
         transform: rotate(90deg);
-    }
-
-    #img-punti {
-        height: 100vh;
-        object-fit: cover;
     }
 
     #map_1 {

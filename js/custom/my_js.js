@@ -5,11 +5,11 @@ $(document).ready(() => {
     $(".dark-box").click(onDarkBoxClick);
     $(".img-zoom-result").hide();
 
-    /*
-    $("#img-punti").css({
+    
+    $("#img_punti").css({
         'width': calc(100 + 'vw' - $(".menu_side_wrap.scheme_side").width())
     });
-    */
+
 })
 
 function onServiceClick() {

@@ -7,7 +7,7 @@ $(document).ready(() => {
 
     
     $("#img_punti").css({
-        'width': calc(100 + 'vw' - $(".menu_side_wrap.scheme_side").width())
+        'width': `calc(100vw - ${$(".menu_side_wrap.scheme_side").width()})`
     });
 
 })
@@ -89,7 +89,6 @@ function onDarkBoxClick() {
 }
 
 function onCloseButtonClick() {
-    console.log('bravooooo');
     let slidingBox = $("#services-section .sliding-box");
     slidingBox.css("left", "-100%");
     $("#services-section .dark-box").fadeOut();

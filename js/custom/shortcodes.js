@@ -16,18 +16,18 @@ function trx_addons_sc_fullheight_init(e, container) {
 
 	container.find('.trx_addons_stretch_height').each(function () {
 		"use strict";
-		var fullheight_item = jQuery(this);
+		let fullheight_item = jQuery(this);
 		// If item now invisible
 		if (jQuery(this).parents('div:hidden,article:hidden').length > 0) {
 			return;
 		}
-		var wh = 0;
-		var fullheight_row = jQuery(this).parents('.vc_row-o-full-height');
+		let wh = 0;
+		let fullheight_row = jQuery(this).parents('.vc_row-o-full-height');
 		if (fullheight_row.length > 0) {
 			wh = fullheight_row.css('height') != 'auto' ? fullheight_row.height() : 'auto';
 		} else {
 			if (screen.height > 1000) {
-				var adminbar = jQuery('#wpadminbar');
+				let adminbar = jQuery('#wpadminbar');
 				wh = jQuery(window).height() - (adminbar.length > 0 ? adminbar.height() : 0);
 			} else
 				wh = 'auto';
@@ -40,31 +40,31 @@ function trx_addons_sc_fullheight_init(e, container) {
 jQuery(document).on('action.init_shortcodes', function(e, container) {
 	"use strict";
 
-	var toc_menu = jQuery('#toc_menu');
+	let toc_menu = jQuery('#toc_menu');
 	if (toc_menu.length == 0) trx_addons_build_page_toc();
 	
 	toc_menu = jQuery('#toc_menu:not(.inited)');
 	if (toc_menu.length == 0) return;
 	
-	var toc_menu_items = toc_menu.addClass('inited').find('.toc_menu_item');
+	let toc_menu_items = toc_menu.addClass('inited').find('.toc_menu_item');
 	trx_addons_detect_active_toc();
 	
-	var wheel_busy = false, wheel_time = 0;
+	let wheel_busy = false, wheel_time = 0;
 	
 	// One page mode for menu links (scroll to anchor)
 	// Old case: toc_menu.on('click', 'a', function(e) {
 	// New case (allow add class 'toc_menu_item' in any menu to enable scroll):
 	jQuery('.toc_menu_item > a').on('click', function(e) {
 		"use strict";
-		var href = jQuery(this).attr('href');
+		let href = jQuery(this).attr('href');
 		if (href===undefined) return;
-		var pos = href.indexOf('#');
+		let pos = href.indexOf('#');
 		if (pos < 0 || href.length == 1) return;
 		if (jQuery(href.substr(pos)).length > 0) {
-			var loc = window.location.href;
-			var pos2 = loc.indexOf('#');
+			let loc = window.location.href;
+			let pos2 = loc.indexOf('#');
 			if (pos2 > 0) loc = loc.substring(0, pos2);
-			var now = pos==0;
+			let now = pos==0;
 			if (!now) now = loc == href.substring(0, pos);
 			if (now) {
 				wheel_busy = true;
@@ -87,7 +87,7 @@ jQuery(document).on('action.init_shortcodes', function(e, container) {
 	trx_addons_mark_active_toc();
 
 	if (TRX_ADDONS_STORAGE['scroll_to_anchor'] == 1) {
-		var wheel_stop = false;
+		let wheel_stop = false;
 		jQuery(document).on('action.stop_wheel_handlers', function(e) {
 			"use strict";
 			wheel_stop = true;
@@ -105,9 +105,9 @@ jQuery(document).on('action.init_shortcodes', function(e, container) {
 				return false;
 			}
 			wheel_time = e.timeStamp;
-			var wheel_dir = e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0 ? -1 : 1;
-			var items = trx_addons_detect_active_toc();
-			var doit = false;
+			let wheel_dir = e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0 ? -1 : 1;
+			let items = trx_addons_detect_active_toc();
+			let doit = false;
 			if (wheel_dir == -1) {			// scroll up
 				doit = true;
 				setTimeout(function() {
@@ -137,7 +137,7 @@ jQuery(document).on('action.init_shortcodes', function(e, container) {
 	// Detect active TOC item
 	function trx_addons_detect_active_toc() {
 		"use strict";
-		var items = {
+		let items = {
 			loc: '',
 			current: [],
 			prev: -1,
@@ -145,19 +145,19 @@ jQuery(document).on('action.init_shortcodes', function(e, container) {
 		};
 		toc_menu_items.each(function(idx) {
 			"use strict";
-			var id = jQuery(this).find('a').attr('href');
-			var pos = id.indexOf('#');
+			let id = jQuery(this).find('a').attr('href');
+			let pos = id.indexOf('#');
 			if (pos < 0 || id.length == 1) return;
-			var loc = window.location.href;
-			var pos2 = loc.indexOf('#');
+			let loc = window.location.href;
+			let pos2 = loc.indexOf('#');
 			if (pos2 > 0) loc = loc.substring(0, pos2);
-			var now = pos==0;
+			let now = pos==0;
 			if (!now) now = loc == href.substring(0, pos);
 			if (!now) return;
-			var off = jQuery(id).offset().top;
-			var id_next  = jQuery(this).next().find('a').attr('href');
-			var off_next = id_next ? jQuery(id_next).offset().top : 1000000;
-			var scroll_offset = jQuery(window).scrollTop();
+			let off = jQuery(id).offset().top;
+			let id_next  = jQuery(this).next().find('a').attr('href');
+			let off_next = id_next ? jQuery(id_next).offset().top : 1000000;
+			let scroll_offset = jQuery(window).scrollTop();
 			if (off > scroll_offset + 50) {
 				if (items.next < 0) items.next = idx;
 			} else if (off < scroll_offset - 50)
@@ -173,9 +173,9 @@ jQuery(document).on('action.init_shortcodes', function(e, container) {
 	// Mark active TOC item
 	function trx_addons_mark_active_toc() {
 		"use strict";
-		var items = trx_addons_detect_active_toc();
+		let items = trx_addons_detect_active_toc();
 		toc_menu_items.removeClass('toc_menu_item_active');
-		for (var i=0; i<items.current.length; i++) {
+		for (let i=0; i<items.current.length; i++) {
 			toc_menu_items.eq(items.current[i]).addClass('toc_menu_item_active');
 			// Comment next line if on your device page jump when scrolling
 			if (items.loc!='' && TRX_ADDONS_STORAGE['update_location_from_anchor']==1 && !trx_addons_browser_is_mobile() && !trx_addons_browser_is_ios() && !wheel_busy)
@@ -189,24 +189,24 @@ jQuery(document).on('action.init_shortcodes', function(e, container) {
 function trx_addons_build_page_toc() {
 	"use strict";
 
-	var toc = '', toc_count = 0;
+	let toc = '', toc_count = 0;
 
 	jQuery('[id^="toc_menu_"],.sc_anchor').each(function(idx) {
 		"use strict";
-		var obj = jQuery(this);
-		var obj_id = obj.attr('id') || ('sc_anchor_'+Math.random()).replace('.', '');
-		var row = obj.parents('.wpb_row');
+		let obj = jQuery(this);
+		let obj_id = obj.attr('id') || ('sc_anchor_'+Math.random()).replace('.', '');
+		let row = obj.parents('.wpb_row');
 		if (row.length == 0) row = obj.parent();
-		var row_id = row.length>0 && row.attr('id')!=undefined && row.attr('id')!='' ? row.attr('id') : '';
-		var id = row_id || obj_id.substr(10);
+		let row_id = row.length>0 && row.attr('id')!=undefined && row.attr('id')!='' ? row.attr('id') : '';
+		let id = row_id || obj_id.substr(10);
 		if (row.length>0 && row_id == '') {
 			row.attr('id', id);
 		}
-		var url = obj.data('url');
-		var icon = obj.data('icon') || 'toc_menu_icon_default';
-		var title = obj.attr('title');
-		var description = obj.data('description');
-		var separator = obj.data('separator');
+		let url = obj.data('url');
+		let icon = obj.data('icon') || 'toc_menu_icon_default';
+		let title = obj.attr('title');
+		let description = obj.data('description');
+		let separator = obj.data('separator');
 		toc_count++;
 		toc += '<div class="toc_menu_item'+(separator=='yes' ? ' toc_menu_separator' : '')+'">'
 			+ (title || description 
@@ -239,21 +239,21 @@ function trx_addons_sc_countdown_init(e, container) {
 		"use strict";
 		jQuery(this).addClass('inited');
 
-		var id = jQuery(this).attr('id');
-		var curDate = new Date(); 
-		var curDateTimeStr = curDate.getFullYear()
+		let id = jQuery(this).attr('id');
+		let curDate = new Date(); 
+		let curDateTimeStr = curDate.getFullYear()
 								+ '-' + (curDate.getMonth()<9 ? '0' : '') + (curDate.getMonth()+1) 
 								+ '-' + (curDate.getDate()<10 ? '0' : '') + curDate.getDate()
 								+ ' ' + (curDate.getHours()<10 ? '0' : '') + curDate.getHours()
 								+ ':' + (curDate.getMinutes()<10 ? '0' : '') + curDate.getMinutes()
 								+ ':' + (curDate.getSeconds()<10 ? '0' : '') + curDate.getSeconds();
-		var interval = 1;	//jQuery(this).data('interval');
-		var endDateStr = jQuery(this).data('date');
-		var endDateParts = endDateStr.split('-');
-		var endTimeStr = jQuery(this).data('time');
-		var endTimeParts = endTimeStr.split(':');
+		let interval = 1;	//jQuery(this).data('interval');
+		let endDateStr = jQuery(this).data('date');
+		let endDateParts = endDateStr.split('-');
+		let endTimeStr = jQuery(this).data('time');
+		let endTimeParts = endTimeStr.split(':');
 		if (endTimeParts.length < 3) endTimeParts[2] = '00';
-		var endDateTimeStr = endDateStr+' '+endTimeStr;
+		let endDateTimeStr = endDateStr+' '+endTimeStr;
 		if (curDateTimeStr < endDateTimeStr) {
 			jQuery(this).find('.sc_countdown_placeholder').countdown({
 				until: new Date(endDateParts[0], endDateParts[1]-1, endDateParts[2], endTimeParts[0], endTimeParts[1], endTimeParts[2]), 
@@ -274,12 +274,12 @@ function trx_addons_sc_countdown_init(e, container) {
 // Countdown update
 function trx_addons_sc_countdown(dt) {
 	"use strict";
-	var counter = jQuery(this).parent();
-	for (var i=3; i<dt.length; i++) {
-		var v = (dt[i]<10 ? '0' : '') + dt[i];
-		var item = counter.find('.sc_countdown_item').eq(i-3);
-		var digits = item.find('.sc_countdown_digits span').addClass('hide');
-		for (var ch=v.length-1; ch>=0; ch--) {
+	let counter = jQuery(this).parent();
+	for (let i=3; i<dt.length; i++) {
+		let v = (dt[i]<10 ? '0' : '') + dt[i];
+		let item = counter.find('.sc_countdown_item').eq(i-3);
+		let digits = item.find('.sc_countdown_digits span').addClass('hide');
+		for (let ch=v.length-1; ch>=0; ch--) {
 			digits.eq(ch+(i==3 && v.length<3 ? 1 : 0)).removeClass('hide').text(v.substr(ch, 1));
 		}
 		trx_addons_sc_countdown_update_canvas(item, dt[i]);
@@ -289,14 +289,14 @@ function trx_addons_sc_countdown(dt) {
 
 function trx_addons_sc_countdown_update_canvas(item, value) {
 
-	var canvas = item.find('canvas');
+	let canvas = item.find('canvas');
 	if (canvas.length == 0) return;
 	
-	var digits = canvas.next();
-	var brd = parseInt(digits.css('border-top-width'));
-	var w = Math.ceil(digits.width()+2*brd);
+	let digits = canvas.next();
+	let brd = parseInt(digits.css('border-top-width'));
+	let w = Math.ceil(digits.width()+2*brd);
 
-	var needRepaint = false;
+	let needRepaint = false;
 	if (canvas.attr('width') != w) {
 		needRepaint = true;
 		canvas.attr({
@@ -308,15 +308,15 @@ function trx_addons_sc_countdown_update_canvas(item, value) {
 	if (item.data('old-value') == value && !needRepaint) return;
 	item.data('old-value', value);
 	
-	var percent = value * 100 / canvas.data('max-value');
-	var angle = 360 * percent / 100;
-	var Ar = angle * Math.PI / 180;
+	let percent = value * 100 / canvas.data('max-value');
+	let angle = 360 * percent / 100;
+	let Ar = angle * Math.PI / 180;
 
-	var canvas_dom = canvas.get(0);
-    var context = canvas_dom.getContext('2d');
-	var r = (w - brd) / 2;
-    var cx = w / 2;
-    var cy = w / 2;
+	let canvas_dom = canvas.get(0);
+    let context = canvas_dom.getContext('2d');
+	let r = (w - brd) / 2;
+    let cx = w / 2;
+    let cy = w / 2;
 
     context.beginPath();
 	context.clearRect(0, 0, w, w);
@@ -372,10 +372,10 @@ function sc_form_mark_filled(field) {
 // Validate form
 function sc_form_validate(form){
 	"use strict";
-	var url = form.attr('action');
+	let url = form.attr('action');
 	if (url == '') return false;
 	form.find('input').removeClass('trx_addons_error_field');
-	var error = trx_addons_form_validate(form, {
+	let error = trx_addons_form_validate(form, {
 			rules: [
 				{
 					field: "name",
@@ -400,14 +400,14 @@ function sc_form_validate(form){
 			data: form.serialize()
 		}).done(function(response) {
 			"use strict";
-			var rez = {};
+			let rez = {};
 			try {
 				rez = JSON.parse(response);
 			} catch(e) {
 				rez = { error: TRX_ADDONS_STORAGE['msg_ajax_error'] };
 				console.log(response);
 			}
-			var result = form.find(".trx_addons_message_box").toggleClass("trx_addons_message_box_error", false).toggleClass("trx_addons_message_box_success", false);
+			let result = form.find(".trx_addons_message_box").toggleClass("trx_addons_message_box_error", false).toggleClass("trx_addons_message_box_success", false);
 			if (rez.error === '') {
 				form.get(0).reset();
 				result.addClass("trx_addons_message_box_success").html(TRX_ADDONS_STORAGE['msg_send_complete']);
@@ -426,11 +426,11 @@ function sc_form_validate(form){
 jQuery(document).on('action.init_shortcodes', function(e, container) {
 	"use strict";
 	
-	var time = 50;
+	let time = 50;
 	container.find('.sc_icon_type_svg:not(.inited)').each(function(idx) {
 		"use strict";
-		var cont = jQuery(this);
-		var id = cont.addClass('inited').attr('id');
+		let cont = jQuery(this);
+		let id = cont.addClass('inited').attr('id');
 		if (id === undefined) {
 			id = 'sc_icons_'+Math.random();
 			id = id.replace('.', '');
@@ -439,7 +439,7 @@ jQuery(document).on('action.init_shortcodes', function(e, container) {
 		cont.find('svg').attr('id', id);
 		setTimeout( function(){
 			cont.css('visibility', 'visible');
-			var obj = new Vivus(id, {type: 'async', duration: 20});
+			let obj = new Vivus(id, {type: 'async', duration: 20});
 			cont.data('svg_obj', obj);
 			cont.parent().hover(
 				function() {
@@ -474,37 +474,37 @@ function trx_addons_sc_skills_init(e, container) {
 
 	if (arguments.length < 2) var container = jQuery('body');
 
-	var scrollPosition = jQuery(window).scrollTop() + jQuery(window).height();
+	let scrollPosition = jQuery(window).scrollTop() + jQuery(window).height();
 
 	container.find('.sc_skills_item:not(.inited)').each(function () {
 		"use strict";
-		var skillsItem = jQuery(this);
+		let skillsItem = jQuery(this);
 		// If item now invisible
 		if (jQuery(this).parents('div:hidden,article:hidden').length > 0) {
 			return;
 		}
-		var scrollSkills = skillsItem.offset().top;
+		let scrollSkills = skillsItem.offset().top;
 		if (scrollPosition > scrollSkills) {
-			var init_ok = true;
-			var skills = skillsItem.parents('.sc_skills').eq(0);
-			var type = skills.data('type');
-			var total = (type=='pie' && skills.hasClass('sc_skills_compact_on')) 
+			let init_ok = true;
+			let skills = skillsItem.parents('.sc_skills').eq(0);
+			let type = skills.data('type');
+			let total = (type=='pie' && skills.hasClass('sc_skills_compact_on')) 
 							? skillsItem.find('.sc_skills_data .pie') 
 							: skillsItem.find('.sc_skills_total').eq(0);
-			var start = parseInt(total.data('start'));
-			var stop = parseInt(total.data('stop'));
-			var maximum = parseInt(total.data('max'));
-			var startPercent = Math.round(start/maximum*100);
-			var stopPercent = Math.round(stop/maximum*100);
-			var ed = total.data('ed');
-			var speed = parseInt(total.data('speed'));
-			var step = parseInt(total.data('step'));
-			var duration = parseInt(total.data('duration'));
+			let start = parseInt(total.data('start'));
+			let stop = parseInt(total.data('stop'));
+			let maximum = parseInt(total.data('max'));
+			let startPercent = Math.round(start/maximum*100);
+			let stopPercent = Math.round(stop/maximum*100);
+			let ed = total.data('ed');
+			let speed = parseInt(total.data('speed'));
+			let step = parseInt(total.data('step'));
+			let duration = parseInt(total.data('duration'));
 			if (isNaN(duration)) duration = Math.ceil(maximum/step)*speed;
 			
 			if (type == 'bar') {
-				var dir = skills.data('dir');
-				var count = skillsItem.find('.sc_skills_count').eq(0);
+				let dir = skills.data('dir');
+				let count = skillsItem.find('.sc_skills_count').eq(0);
 				if (dir=='horizontal')
 					count.css('width', startPercent + '%').animate({ width: stopPercent + '%' }, duration);
 				else if (dir=='vertical')
@@ -516,12 +516,12 @@ function trx_addons_sc_skills_init(e, container) {
 
 			} else if (type == 'pie') {
 				if (window.Chart) {
-					var steps = parseInt(total.data('steps'));
-					var bg_color = total.data('bg_color');
-					var border_color = total.data('border_color');
-					var cutout = parseInt(total.data('cutout'));
-					var easing = total.data('easing');
-					var options = {
+					let steps = parseInt(total.data('steps'));
+					let bg_color = total.data('bg_color');
+					let border_color = total.data('border_color');
+					let cutout = parseInt(total.data('cutout'));
+					let easing = total.data('easing');
+					let options = {
 						segmentShowStroke: border_color!='',
 						segmentStrokeColor: border_color,
 						segmentStrokeWidth: border_color!='' ? 1 : 0,
@@ -531,12 +531,12 @@ function trx_addons_sc_skills_init(e, container) {
 						animateRotate: true,
 						animateScale: false,
 					};
-					var pieData = [];
+					let pieData = [];
 					total.each(function() {
 						"use strict";
-						var color = jQuery(this).data('color');
-						var stop = parseInt(jQuery(this).data('stop'));
-						var stopPercent = Math.round(stop/maximum*100);
+						let color = jQuery(this).data('color');
+						let stop = parseInt(jQuery(this).data('stop'));
+						let stopPercent = Math.round(stop/maximum*100);
 						pieData.push({
 							value: stopPercent,
 							color: color
@@ -549,7 +549,7 @@ function trx_addons_sc_skills_init(e, container) {
 							color: bg_color
 						});
 					}
-					var canvas = skillsItem.find('canvas');
+					let canvas = skillsItem.find('canvas');
 					canvas.attr({width: skillsItem.width(), height: skillsItem.width()}).css({width: skillsItem.width(), height: skillsItem.height()});
 					new Chart(canvas.get(0).getContext("2d")).Doughnut(pieData, options);
 				} else
@@ -615,8 +615,8 @@ function trx_addons_admin_init() {
 	// Refresh categories when post type is changed
 	jQuery('.widget-liquid-right,.widgets-holder-wrap').on('change', '.widgets_param_post_type_selector', function() {
 		"use strict";
-		var cat_fld = jQuery(this).parent().next().find('select');
-		var cat_lbl = jQuery(this).parent().next().find('label');
+		let cat_fld = jQuery(this).parent().next().find('select');
+		let cat_lbl = jQuery(this).parent().next().find('label');
 		trx_addons_fill_categories(this, cat_fld, cat_lbl);
 		return false;
 	});
@@ -660,26 +660,26 @@ function trx_addons_show_media_manager(el) {
 	TRX_ADDONS_STORAGE['media_frame'][TRX_ADDONS_STORAGE['media_id']].on( 'insert select', function(selection) {
 		"use strict";
 		// Grab the selected attachment.
-		var field = jQuery("#"+TRX_ADDONS_STORAGE['media_link'][TRX_ADDONS_STORAGE['media_id']].data('linked-field')).eq(0);
-		var attachment = null, attachment_url = '';
+		let field = jQuery("#"+TRX_ADDONS_STORAGE['media_link'][TRX_ADDONS_STORAGE['media_id']].data('linked-field')).eq(0);
+		let attachment = null, attachment_url = '';
 		if (TRX_ADDONS_STORAGE['media_link'][TRX_ADDONS_STORAGE['media_id']].data('multiple')===true) {
 			TRX_ADDONS_STORAGE['media_frame'][TRX_ADDONS_STORAGE['media_id']].state().get('selection').map( function( att ) {
 				attachment_url += (attachment_url ? "\n" : "") + att.toJSON().url;
 			});
-			var val = field.val();
+			let val = field.val();
 			attachment_url = val + (val ? "\n" : '') + attachment_url;
 		} else {
 			attachment = TRX_ADDONS_STORAGE['media_frame'][TRX_ADDONS_STORAGE['media_id']].state().get('selection').first().toJSON();
 			attachment_url = attachment.url;
-			var sizes_selector = jQuery('.media-modal-content .attachment-display-settings select.size');
+			let sizes_selector = jQuery('.media-modal-content .attachment-display-settings select.size');
 			if (sizes_selector.length > 0) {
-				var size = trx_addons_get_listbox_selected_value(sizes_selector.get(0));
+				let size = trx_addons_get_listbox_selected_value(sizes_selector.get(0));
 				if (size != '') attachment_url = attachment.sizes[size].url;
 			}
 		}
 		field.val(attachment_url);
 		if (attachment_url.indexOf('.jpg') > 0 || attachment_url.indexOf('.png') > 0 || attachment_url.indexOf('.gif') > 0) {
-			var preview = field.siblings('.trx_addons_options_field_preview');
+			let preview = field.siblings('.trx_addons_options_field_preview');
 			if (preview.length != 0) {
 				if (preview.find('img').length == 0)
 					preview.append('<img src="'+attachment_url+'">');
@@ -703,18 +703,18 @@ function trx_addons_show_media_manager(el) {
 // Fill categories in specified field
 function trx_addons_fill_categories(fld, cat_fld, cat_lbl) {
 	"use strict";
-	var cat_value = cat_fld.val();
+	let cat_value = cat_fld.val();
 	cat_lbl.append('<span class="sc_refresh iconaddons-spin3 animate-spin"></span>');
-	var pt = jQuery(fld).val();
+	let pt = jQuery(fld).val();
 	// Prepare data
-	var data = {
+	let data = {
 		action: 'trx_addons_change_post_type',
 		nonce: TRX_ADDONS_STORAGE['ajax_nonce'],
 		post_type: pt
 	};
 	jQuery.post(TRX_ADDONS_STORAGE['ajax_url'], data, function(response) {
 		"use strict";
-		var rez = {};
+		let rez = {};
 		try {
 			rez = JSON.parse(response);
 		} catch (e) {
@@ -722,8 +722,8 @@ function trx_addons_fill_categories(fld, cat_fld, cat_lbl) {
 			console.log(response);
 		}
 		if (rez.error === '') {
-			var opt_list = '';
-			for (var i in rez.data.ids) {
+			let opt_list = '';
+			for (let i in rez.data.ids) {
 				opt_list += '<option class="'+rez.data.ids[i]+'" value="'+rez.data.ids[i]+'"'+(rez.data.ids[i]==cat_value ? ' selected="selected"' : '')+'>'+rez.data.titles[i]+'</option>';
 			}
 			cat_fld.html(opt_list);
@@ -802,10 +802,10 @@ function trx_addons_ready_actions(e, container) {
 		container.find('.trx_addons_tabs:not(.inited)').each(function () {
 			"use strict";
 			// Get initially opened tab
-			var init = jQuery(this).data('active');
+			let init = jQuery(this).data('active');
 			if (isNaN(init)) {
 				init = 0;
-				var active = jQuery(this).find('> ul > li[data-active="true"]').eq(0);
+				let active = jQuery(this).find('> ul > li[data-active="true"]').eq(0);
 				if (active.length > 0) {
 					init = active.index();
 					if (isNaN(init) || init < 0) init = 0;
@@ -841,18 +841,18 @@ function trx_addons_ready_actions(e, container) {
 		container.find('.trx_addons_accordion:not(.inited)').each(function () {
 			"use strict";
 			// Get headers selector
-			var accordion = jQuery(this);
-			var headers = accordion.data('headers');
+			let accordion = jQuery(this);
+			let headers = accordion.data('headers');
 			if (headers===undefined) headers = 'h5';
 			// Get height style
-			var height_style = accordion.data('height-style');
+			let height_style = accordion.data('height-style');
 			if (height_style===undefined) height_style = 'content';
 			// Get initially opened tab
-			var init = accordion.data('active');
-			var active = false;
+			let init = accordion.data('active');
+			let active = false;
 			if (isNaN(init)) {
 				init = 0;
-				var active = accordion.find(headers+'[data-active="true"]').eq(0);
+				let active = accordion.find(headers+'[data-active="true"]').eq(0);
 				if (active.length > 0) {
 					while (!active.parent().hasClass('trx_addons_accordion')) {
 						active = active.parent();
@@ -907,9 +907,9 @@ function trx_addons_ready_actions(e, container) {
 					.find('.video_embed').html(jQuery(this).data('video'));
 
 				// If video in the slide
-				var slider = jQuery(this).parents('.slider_swiper');
+				let slider = jQuery(this).parents('.slider_swiper');
 				if (slider.length > 0) {
-					var id = slider.attr('id');
+					let id = slider.attr('id');
 					TRX_ADDONS_STORAGE['swipers'][id].stopAutoplay();
 				}
 
@@ -924,7 +924,7 @@ function trx_addons_ready_actions(e, container) {
     //----------------------------------------------
 	if (TRX_ADDONS_STORAGE['popup_engine'] == 'pretty') {
 		container.find("a[href$='jpg']:not(.inited),a[href$='jpeg']:not(.inited),a[href$='png']:not(.inited),a[href$='gif']:not(.inited)").attr('rel', 'prettyPhoto[slideshow]');
-		var images = container.find("a[rel*='prettyPhoto']:not(.inited):not(.esgbox):not([data-rel*='pretty']):not([rel*='magnific']):not([data-rel*='magnific'])").addClass('inited');
+		let images = container.find("a[rel*='prettyPhoto']:not(.inited):not(.esgbox):not([data-rel*='pretty']):not([rel*='magnific']):not([data-rel*='magnific'])").addClass('inited');
 		try {
 			images.prettyPhoto({
 				social_tools: '',
@@ -934,7 +934,7 @@ function trx_addons_ready_actions(e, container) {
 		} catch (e) {};
 	} else if (TRX_ADDONS_STORAGE['popup_engine']=='magnific') {
 		container.find("a[href$='jpg']:not(.inited),a[href$='jpeg']:not(.inited),a[href$='png']:not(.inited),a[href$='gif']:not(.inited)").attr('rel', 'magnific');
-		var images = container.find("a[rel*='magnific']:not(.inited):not(.esgbox):not(.prettyphoto):not([rel*='pretty']):not([data-rel*='pretty'])").addClass('inited');
+		let images = container.find("a[rel*='magnific']:not(.inited):not(.esgbox):not(.prettyphoto):not([rel*='pretty']):not([data-rel*='pretty'])").addClass('inited');
 		try {
 			images.magnificPopup({
 				type: 'image',
@@ -989,10 +989,10 @@ function trx_addons_ready_actions(e, container) {
 			.addClass('inited')
 			.on('click', function(e) {
 				"use strict";
-				// var button = jQuery(this);
-				// var inc = button.hasClass('enabled') ? 1 : -1;
-				// var post_id = button.hasClass('post_counters_likes') ? button.data('postid') :  button.data('commentid');
-				// var cookie_likes = trx_addons_get_cookie(button.hasClass('post_counters_likes') ? 'trx_addons_likes' : 'trx_addons_comment_likes');
+				// let button = jQuery(this);
+				// let inc = button.hasClass('enabled') ? 1 : -1;
+				// let post_id = button.hasClass('post_counters_likes') ? button.data('postid') :  button.data('commentid');
+				// let cookie_likes = trx_addons_get_cookie(button.hasClass('post_counters_likes') ? 'trx_addons_likes' : 'trx_addons_comment_likes');
 				// if (cookie_likes === undefined || cookie_likes===null) cookie_likes = '';
 				// jQuery.post(TRX_ADDONS_STORAGE['ajax_url'], {
 				// 	action: button.hasClass('post_counters_likes') ? 'post_counter' : 'comment_counter',
@@ -1001,7 +1001,7 @@ function trx_addons_ready_actions(e, container) {
 				// 	likes: inc
 				// }).done(function(response) {
 				// 	"use strict";
-				// 	var rez = {};
+				// 	let rez = {};
 				// 	try {
 				// 		rez = JSON.parse(response);
 				// 	} catch (e) {
@@ -1009,13 +1009,13 @@ function trx_addons_ready_actions(e, container) {
 				// 		console.log(response);
 				// 	}
 				// 	if (rez.error === '') {
-				// 		var counter = rez.counter;
+				// 		let counter = rez.counter;
 				// 		if (inc == 1) {
-				// 			var title = button.data('title-dislike');
+				// 			let title = button.data('title-dislike');
 				// 			button.removeClass('enabled trx_addons_icon-heart-empty').addClass('disabled trx_addons_icon-heart');
 				// 			cookie_likes += (cookie_likes.substr(-1)!=',' ? ',' : '') + post_id + ',';
 				// 		} else {
-				// 			var title = button.data('title-like');
+				// 			let title = button.data('title-like');
 				// 			button.removeClass('disabled trx_addons_icon-heart').addClass('enabled trx_addons_icon-heart-empty');
 				// 			cookie_likes = cookie_likes.replace(','+post_id+',', ',');
 				// 		}
@@ -1049,7 +1049,7 @@ function trx_addons_ready_actions(e, container) {
 			"use strict";
 			jQuery(this).addClass('inited').on('click', '.social_item_popup > a.social_icons', function(e) {
 				"use strict";
-				var url = jQuery(this).data('link');
+				let url = jQuery(this).data('link');
 				window.open(url, '_blank', 'scrollbars=0, resizable=1, menubar=0, left=100, top=100, width=480, height=400, toolbar=0, status=0');
 				e.preventDefault();
 				return false;
@@ -1072,7 +1072,7 @@ function trx_addons_ready_actions(e, container) {
 	// Archive widget decoration
 	container.find('.widget_archive a:not(.inited)').addClass('inited').each(function() {
 		"use strict";
-		var val = jQuery(this).html().split(' ');
+		let val = jQuery(this).html().split(' ');
 		if (val.length > 1) {
 			val[val.length-1] = '<span>' + val[val.length-1] + '</span>';
 			jQuery(this).html(val.join(' '))
@@ -1105,9 +1105,9 @@ function trx_addons_ready_actions(e, container) {
 function trx_addons_scroll_actions() {
 	"use strict";
 
-	var scroll_offset = jQuery(window).scrollTop();
-	var scroll_to_top_button = jQuery('.trx_addons_scroll_to_top');
-	var adminbar_height = Math.max(0, jQuery('#wpadminbar').height());
+	let scroll_offset = jQuery(window).scrollTop();
+	let scroll_to_top_button = jQuery('.trx_addons_scroll_to_top');
+	let adminbar_height = Math.max(0, jQuery('#wpadminbar').height());
 
 	// Scroll to top button show/hide
 	if (scroll_to_top_button.length > 0) {
@@ -1144,22 +1144,22 @@ function trx_addons_resize_video(cont) {
 	if (cont===undefined) cont = jQuery('body');
 	cont.find('video').each(function() {
 		"use strict";
-		var video = jQuery(this).eq(0);
-		var ratio = (video.data('ratio')!=undefined ? video.data('ratio').split(':') : [16,9]);
+		let video = jQuery(this).eq(0);
+		let ratio = (video.data('ratio')!=undefined ? video.data('ratio').split(':') : [16,9]);
 		ratio = ratio.length!=2 || ratio[0]==0 || ratio[1]==0 ? 16/9 : ratio[0]/ratio[1];
-		var mejs_cont = video.parents('.mejs-video');
-		var w_attr = video.data('width');
-		var h_attr = video.data('height');
+		let mejs_cont = video.parents('.mejs-video');
+		let w_attr = video.data('width');
+		let h_attr = video.data('height');
 		if (!w_attr || !h_attr) {
 			w_attr = video.attr('width');
 			h_attr = video.attr('height');
 			if (!w_attr || !h_attr) return;
 			video.data({'width': w_attr, 'height': h_attr});
 		}
-		var percent = (''+w_attr).substr(-1)=='%';
+		let percent = (''+w_attr).substr(-1)=='%';
 		w_attr = parseInt(w_attr);
 		h_attr = parseInt(h_attr);
-		var w_real = Math.round(mejs_cont.length > 0 ? Math.min(percent ? 10000 : w_attr, mejs_cont.parents('div,article').width()) : video.width()),
+		let w_real = Math.round(mejs_cont.length > 0 ? Math.min(percent ? 10000 : w_attr, mejs_cont.parents('div,article').width()) : video.width()),
 			h_real = Math.round(percent ? w_real/ratio : w_real/w_attr*h_attr);
 		if (parseInt(video.attr('data-last-width'))==w_real) return;
 		if (mejs_cont.length > 0 && mejs) {
@@ -1174,9 +1174,9 @@ function trx_addons_resize_video(cont) {
 	});
 	cont.find('.video_frame iframe').each(function() {
 		"use strict";
-		var iframe = jQuery(this).eq(0);
+		let iframe = jQuery(this).eq(0);
 		if (iframe.attr('src').indexOf('soundcloud')>0) return;
-		var ratio = (iframe.data('ratio')!=undefined 
+		let ratio = (iframe.data('ratio')!=undefined 
 						? iframe.data('ratio').split(':') 
 						: (iframe.parent().data('ratio')!=undefined 
 							? iframe.parent().data('ratio').split(':') 
@@ -1187,15 +1187,15 @@ function trx_addons_resize_video(cont) {
 							)
 						);
 		ratio = ratio.length!=2 || ratio[0]==0 || ratio[1]==0 ? 16/9 : ratio[0]/ratio[1];
-		var w_attr = iframe.attr('width');
-		var h_attr = iframe.attr('height');
+		let w_attr = iframe.attr('width');
+		let h_attr = iframe.attr('height');
 		if (!w_attr || !h_attr) {
 			return;
 		}
-		var percent = (''+w_attr).substr(-1)=='%';
+		let percent = (''+w_attr).substr(-1)=='%';
 		w_attr = parseInt(w_attr);
 		h_attr = parseInt(h_attr);
-		var pw = iframe.parent().width(),
+		let pw = iframe.parent().width(),
 			ph = iframe.parent().height(),
 			w_real = pw,
 			h_real = Math.round(percent ? w_real/ratio : w_real/w_attr*h_attr);
@@ -1214,7 +1214,7 @@ function trx_addons_resize_video(cont) {
 function trx_addons_set_mejs_player_dimensions(video, w, h) {
 	"use strict";
 	if (mejs) {
-		for (var pl in mejs.players) {
+		for (let pl in mejs.players) {
 			if (mejs.players[pl].media.src == video.attr('src')) {
 				if (mejs.players[pl].media.setVideoSize) {
 					mejs.players[pl].media.setVideoSize(w, h);
@@ -1241,11 +1241,11 @@ function trx_addons_init_sliders(e, container) {
 		container.find('.sc_slider_controller:not(.inited)')
 			.each(function () {
 				"use strict";
-				var controller = jQuery(this).addClass('inited');
-				var slider_id = controller.data('slider-id');
+				let controller = jQuery(this).addClass('inited');
+				let slider_id = controller.data('slider-id');
 				if (!slider_id) return;
 				
-				var controller_id = controller.attr('id');
+				let controller_id = controller.attr('id');
 				if (controller_id == undefined) {
 					controller_id = 'sc_slider_controller_'+Math.random();
 					controller_id = controller_id.replace('.', '');
@@ -1254,23 +1254,23 @@ function trx_addons_init_sliders(e, container) {
 
 				jQuery('#'+slider_id+' .slider_swiper').attr('data-controller', controller_id);
 
-				var controller_style = controller.data('style');
-				var controller_effect = controller.data('effect');
-				var controller_interval = controller.data('interval');
-				var controller_height = controller.data('height');
-				var controller_per_view = controller.data('slides-per-view');
-				var controller_space = controller.data('slides-space');
-				var controller_controls = controller.data('controls');
+				let controller_style = controller.data('style');
+				let controller_effect = controller.data('effect');
+				let controller_interval = controller.data('interval');
+				let controller_height = controller.data('height');
+				let controller_per_view = controller.data('slides-per-view');
+				let controller_space = controller.data('slides-space');
+				let controller_controls = controller.data('controls');
 
-				var controller_html = '';
+				let controller_html = '';
 				jQuery('#'+slider_id+' .swiper-slide')
 					.each(function (idx) {
 						"use strict";
-						var slide = jQuery(this);
-						var image = slide.data('image');
-						var title = slide.data('title');
-						var cats = slide.data('cats');
-						var date = slide.data('date');
+						let slide = jQuery(this);
+						let image = slide.data('image');
+						let title = slide.data('title');
+						let cats = slide.data('cats');
+						let date = slide.data('date');
 						controller_html += '<div class="swiper-slide"'
 												+ ' style="'
 														+ (image !== undefined ? 'background-image: url('+image+');' : '')
@@ -1334,19 +1334,19 @@ function runSliderAnimations(container) {
 					return;
 				
 				// Check attr id for slider. If not exists - generate it
-				var slider = jQuery(this);
-				var id = slider.attr('id');
+				let slider = jQuery(this);
+				let id = slider.attr('id');
 				if (id == undefined) {
 					id = 'swiper_'+Math.random();
 					id = id.replace('.', '');
 					slider.attr('id', id);
 				}
-				var cont = slider.parent().hasClass('slider_swiper_outer') ? slider.parent().attr('id', id+'_outer') : slider;
-				var cont_id = cont.attr('id');
+				let cont = slider.parent().hasClass('slider_swiper_outer') ? slider.parent().attr('id', id+'_outer') : slider;
+				let cont_id = cont.attr('id');
 
 				// If this slider is controller for the other slider
-				var is_controller = slider.parents('.sc_slider_controller').length > 0;
-				var controller_id = slider.data('controller');
+				let is_controller = slider.parents('.sc_slider_controller').length > 0;
+				let controller_id = slider.data('controller');
 				
 				// Enum all slides
 				slider.find('.swiper-slide').each(function(idx) {
@@ -1363,16 +1363,16 @@ function runSliderAnimations(container) {
 					.data('settings', {mode: 'horizontal'});		// VC hook
 
 				// Min width of the slides in swiper (used for validate slides_per_view on small screen)
-				var smw = slider.data('slides-min-width');
+				let smw = slider.data('slides-min-width');
 				if (smw == undefined) {
 					smw = 250;
 					slider.attr('data-slides-min-width', smw);
 				}
 
 				// Validate Slides per view on small screen
-				var width = slider.width();
+				let width = slider.width();
 				if (width == 0) width = slider.parent().width();
-				var spv = slider.data('slides-per-view');
+				let spv = slider.data('slides-per-view');
 				if (spv == undefined) {
 					spv = 1;
 					slider.attr('data-slides-per-view', spv);
@@ -1380,11 +1380,11 @@ function runSliderAnimations(container) {
 				if (width / spv < smw) spv = Math.max(1, Math.floor(width / smw));
 
 				// Space between slides
-				var space = slider.data('slides-space');
+				let space = slider.data('slides-space');
 				if (space == undefined) space = 0;
 				
 				// Autoplay interval
-				var interval = slider.data('interval');
+				let interval = slider.data('interval');
 				if (isNaN(interval)) interval = 0;
 					
 				if (TRX_ADDONS_STORAGE['swipers'] === undefined) TRX_ADDONS_STORAGE['swipers'] = {};
@@ -1415,19 +1415,19 @@ function runSliderAnimations(container) {
 						// Change outside title
 						cont.find('.slider_titles_outside_wrap .active').removeClass('active').fadeOut();
 						// Update controller or controlled slider
-						var controlled_slider = jQuery('#'+slider.data(is_controller ? 'controlled-slider' : 'controller')+' .slider_swiper');
-						var controlled_id = controlled_slider.attr('id');
+						let controlled_slider = jQuery('#'+slider.data(is_controller ? 'controlled-slider' : 'controller')+' .slider_swiper');
+						let controlled_id = controlled_slider.attr('id');
 						if (TRX_ADDONS_STORAGE['swipers'][controlled_id] && jQuery('#'+controlled_id).attr('data-busy')!=1) {
 							slider.attr('data-busy', 1);
 							setTimeout(function() { slider.attr('data-busy', 0); }, 300);
-							var slide_number = jQuery(swiper.slides[swiper.activeIndex]).data('slide-number');
-							var slide_idx = controlled_slider.find('[data-slide-number="'+slide_number+'"]').index();
+							let slide_number = jQuery(swiper.slides[swiper.activeIndex]).data('slide-number');
+							let slide_idx = controlled_slider.find('[data-slide-number="'+slide_number+'"]').index();
 							TRX_ADDONS_STORAGE['swipers'][controlled_id].slideTo(slide_idx);
 						}
 					},
 					onSlideChangeEnd: function (swiper) {
 						// Change outside title
-						var titles = cont.find('.slider_titles_outside_wrap .slide_info');
+						let titles = cont.find('.slider_titles_outside_wrap .slide_info');
 						if (titles.length==0) return;
 						//titles.eq((swiper.activeIndex-1)%titles.length).addClass('active').fadeIn();
 						titles.eq(jQuery(swiper.slides[swiper.activeIndex]).data('slide-number')).addClass('active').fadeIn(300);
@@ -1463,21 +1463,21 @@ function trx_addons_resize_sliders(container) {
 		// If slider in the hidden block - don't resize it
 		if (jQuery(this).parents('div:hidden,article:hidden').length > 0) return;
 
-		var id = jQuery(this).attr('id');
-		var slider_width = jQuery(this).width();
-		var slide = jQuery(this).find('.swiper-slide').eq(0);
-		var slide_width = slide.width();
-		var slide_height = slide.height();
-		var last_width = jQuery(this).data('last-width');
+		let id = jQuery(this).attr('id');
+		let slider_width = jQuery(this).width();
+		let slide = jQuery(this).find('.swiper-slide').eq(0);
+		let slide_width = slide.width();
+		let slide_height = slide.height();
+		let last_width = jQuery(this).data('last-width');
 		if (isNaN(last_width)) last_width = 0;
-		var ratio = jQuery(this).data('ratio');
+		let ratio = jQuery(this).data('ratio');
 		if (ratio===undefined || (''+ratio).indexOf(':')<1) {
 			ratio = slide_height > 0 ? slide_width+':'+slide_height : "16:9";
 			jQuery(this).attr('data-ratio', ratio);
 		}
 		ratio = ratio.split(':');
-		var ratio_x = !isNaN(ratio[0]) ? Number(ratio[0]) : 16;
-		var ratio_y = !isNaN(ratio[1]) ? Number(ratio[1]) : 9;
+		let ratio_x = !isNaN(ratio[0]) ? Number(ratio[0]) : 16;
+		let ratio_y = !isNaN(ratio[1]) ? Number(ratio[1]) : 9;
 		
 		// Resize slider
 		if ( !jQuery(this).hasClass('slider_noresize') ) {
@@ -1487,8 +1487,8 @@ function trx_addons_resize_sliders(container) {
 		// Change slides_per_view
 		if (TRX_ADDONS_STORAGE['swipers'][id].params.slidesPerView != 'auto') {
 			if (last_width==0 || last_width!=slider_width) {
-				var smw = jQuery(this).data('slides-min-width');
-				var spv = jQuery(this).data('slides-per-view');
+				let smw = jQuery(this).data('slides-min-width');
+				let spv = jQuery(this).data('slides-per-view');
 				if (slider_width / spv < smw) spv = Math.max(1, Math.floor(slider_width / smw));
 				jQuery(this).data('last-width', slider_width);
 				if (TRX_ADDONS_STORAGE['swipers'][id].params.slidesPerView != spv) {
@@ -1509,15 +1509,15 @@ function trx_addons_resize_sliders(container) {
 
 function trx_addons_get_cookie(name) {
 	"use strict";
-	var defa = arguments[1]!=undefined ? arguments[1] : null;
-	var start = document.cookie.indexOf(name + '=');
-	var len = start + name.length + 1;
+	let defa = arguments[1]!=undefined ? arguments[1] : null;
+	let start = document.cookie.indexOf(name + '=');
+	let len = start + name.length + 1;
 	if ((!start) && (name != document.cookie.substring(0, name.length))) {
 		return defa;
 	}
 	if (start == -1)
 		return defa;
-	var end = document.cookie.indexOf(';', len);
+	let end = document.cookie.indexOf(';', len);
 	if (end == -1)
 		end = document.cookie.length;
 	return unescape(document.cookie.substring(len, end));
@@ -1562,13 +1562,13 @@ function trx_addons_del_cookie(name, path, domain) {
 
 function trx_addons_clear_listbox(box) {
 	"use strict";
-	for (var i=box.options.length-1; i>=0; i--)
+	for (let i=box.options.length-1; i>=0; i--)
 		box.options[i] = null;
 }
 
 function trx_addons_add_listbox_item(box, val, text) {
 	"use strict";
-	var item = new Option();
+	let item = new Option();
 	item.value = val;
 	item.text = text;
     box.options.add(item);
@@ -1576,7 +1576,7 @@ function trx_addons_add_listbox_item(box, val, text) {
 
 function trx_addons_del_listbox_item_by_value(box, val) {
 	"use strict";
-	for (var i=0; i<box.options.length; i++) {
+	for (let i=0; i<box.options.length; i++) {
 		if (box.options[i].value == val) {
 			box.options[i] = null;
 			break;
@@ -1586,7 +1586,7 @@ function trx_addons_del_listbox_item_by_value(box, val) {
 
 function trx_addons_del_listbox_item_by_text(box, txt) {
 	"use strict";
-	for (var i=0; i<box.options.length; i++) {
+	for (let i=0; i<box.options.length; i++) {
 		if (box.options[i].text == txt) {
 			box.options[i] = null;
 			break;
@@ -1596,8 +1596,8 @@ function trx_addons_del_listbox_item_by_text(box, txt) {
 
 function trx_addons_find_listbox_item_by_value(box, val) {
 	"use strict";
-	var idx = -1;
-	for (var i=0; i<box.options.length; i++) {
+	let idx = -1;
+	for (let i=0; i<box.options.length; i++) {
 		if (box.options[i].value == val) {
 			idx = i;
 			break;
@@ -1608,8 +1608,8 @@ function trx_addons_find_listbox_item_by_value(box, val) {
 
 function trx_addons_find_listbox_item_by_text(box, txt) {
 	"use strict";
-	var idx = -1;
-	for (var i=0; i<box.options.length; i++) {
+	let idx = -1;
+	for (let i=0; i<box.options.length; i++) {
 		if (box.options[i].text == txt) {
 			idx = i;
 			break;
@@ -1620,23 +1620,23 @@ function trx_addons_find_listbox_item_by_text(box, txt) {
 
 function trx_addons_select_listbox_item_by_value(box, val) {
 	"use strict";
-	for (var i = 0; i < box.options.length; i++) {
+	for (let i = 0; i < box.options.length; i++) {
 		box.options[i].selected = (val == box.options[i].value);
 	}
 }
 
 function trx_addons_select_listbox_item_by_text(box, txt) {
 	"use strict";
-	for (var i = 0; i < box.options.length; i++) {
+	for (let i = 0; i < box.options.length; i++) {
 		box.options[i].selected = (txt == box.options[i].text);
 	}
 }
 
 function trx_addons_get_listbox_values(box) {
 	"use strict";
-	var delim = arguments[1] ? arguments[1] : ',';
-	var str = '';
-	for (var i=0; i<box.options.length; i++) {
+	let delim = arguments[1] ? arguments[1] : ',';
+	let str = '';
+	for (let i=0; i<box.options.length; i++) {
 		str += (str ? delim : '') + box.options[i].value;
 	}
 	return str;
@@ -1644,9 +1644,9 @@ function trx_addons_get_listbox_values(box) {
 
 function trx_addons_get_listbox_texts(box) {
 	"use strict";
-	var delim = arguments[1] ? arguments[1] : ',';
-	var str = '';
-	for (var i=0; i<box.options.length; i++) {
+	let delim = arguments[1] ? arguments[1] : ',';
+	let str = '';
+	for (let i=0; i<box.options.length; i++) {
 		str += (str ? delim : '') + box.options[i].text;
 	}
 	return str;
@@ -1654,13 +1654,13 @@ function trx_addons_get_listbox_texts(box) {
 
 function trx_addons_sort_listbox(box)  {
 	"use strict";
-	var temp_opts = new Array();
-	var temp = new Option();
-	for(var i=0; i<box.options.length; i++)  {
+	let temp_opts = new Array();
+	let temp = new Option();
+	for(let i=0; i<box.options.length; i++)  {
 		temp_opts[i] = box.options[i].clone();
 	}
-	for(var x=0; x<temp_opts.length-1; x++)  {
-		for(var y=(x+1); y<temp_opts.length; y++)  {
+	for(let x=0; x<temp_opts.length-1; x++)  {
+		for(let y=(x+1); y<temp_opts.length; y++)  {
 			if(temp_opts[x].text > temp_opts[y].text)  {
 				temp = temp_opts[x];
 				temp_opts[x] = temp_opts[y];
@@ -1668,14 +1668,14 @@ function trx_addons_sort_listbox(box)  {
 			}  
 		}  
 	}
-	for(var i=0; i<box.options.length; i++)  {
+	for(let i=0; i<box.options.length; i++)  {
 		box.options[i] = temp_opts[i].clone();
 	}
 }
 
 function trx_addons_get_listbox_selected_index(box) {
 	"use strict";
-	for (var i = 0; i < box.options.length; i++) {
+	for (let i = 0; i < box.options.length; i++) {
 		if (box.options[i].selected)
 			return i;
 	}
@@ -1684,7 +1684,7 @@ function trx_addons_get_listbox_selected_index(box) {
 
 function trx_addons_get_listbox_selected_value(box) {
 	"use strict";
-	for (var i = 0; i < box.options.length; i++) {
+	for (let i = 0; i < box.options.length; i++) {
 		if (box.options[i].selected) {
 			return box.options[i].value;
 		}
@@ -1694,7 +1694,7 @@ function trx_addons_get_listbox_selected_value(box) {
 
 function trx_addons_get_listbox_selected_text(box) {
 	"use strict";
-	for (var i = 0; i < box.options.length; i++) {
+	for (let i = 0; i < box.options.length; i++) {
 		if (box.options[i].selected) {
 			return box.options[i].text;
 		}
@@ -1704,7 +1704,7 @@ function trx_addons_get_listbox_selected_text(box) {
 
 function trx_addons_get_listbox_selected_option(box) {
 	"use strict";
-	for (var i = 0; i < box.options.length; i++) {
+	for (let i = 0; i < box.options.length; i++) {
 		if (box.options[i].selected) {
 			return box.options[i];
 		}
@@ -1719,21 +1719,21 @@ function trx_addons_get_listbox_selected_option(box) {
 
 function trx_addons_get_radio_value(radioGroupObj) {
 	"use strict";
-	for (var i=0; i < radioGroupObj.length; i++)
+	for (let i=0; i < radioGroupObj.length; i++)
 		if (radioGroupObj[i].checked) return radioGroupObj[i].value;
 	return null;
 }
 
 function trx_addons_set_radio_checked_by_num(radioGroupObj, num) {
 	"use strict";
-	for (var i=0; i < radioGroupObj.length; i++)
+	for (let i=0; i < radioGroupObj.length; i++)
 		if (radioGroupObj[i].checked && i!=num) radioGroupObj[i].checked=false;
 		else if (i==num) radioGroupObj[i].checked=true;
 }
 
 function trx_addons_set_radio_checked_by_value(radioGroupObj, val) {
 	"use strict";
-	for (var i=0; i < radioGroupObj.length; i++)
+	for (let i=0; i < radioGroupObj.length; i++)
 		if (radioGroupObj[i].checked && radioGroupObj[i].value!=val) radioGroupObj[i].checked=false;
 		else if (radioGroupObj[i].value==val) radioGroupObj[i].checked=true;
 }
@@ -1745,7 +1745,7 @@ function trx_addons_set_radio_checked_by_value(radioGroupObj, val) {
 
 /*
 // Usage example:
-var error = trx_addons_form_validate(jQuery(form_selector), {	// -------- Options ---------
+let error = trx_addons_form_validate(jQuery(form_selector), {	// -------- Options ---------
 	error_message_show: true,									// Display or not error message
 	error_message_time: 5000,									// Time to display error message
 	error_message_class: 'trx_addons_message_box_error',		// Class, appended to error message block
@@ -1792,14 +1792,14 @@ function trx_addons_form_validate(form, opt) {
 	if (typeof(opt.error_fields_class)=='undefined')		opt.error_fields_class = 'trx_addons_field_error';
 	if (typeof(opt.exit_after_first_error)=='undefined')	opt.exit_after_first_error = false;
 	// Validate fields
-	var error_msg = '';
+	let error_msg = '';
 	form.find(":input").each(function() {
 		"use strict";
 		if (error_msg!='' && opt.exit_after_first_error) return;
-		for (var i = 0; i < opt.rules.length; i++) {
+		for (let i = 0; i < opt.rules.length; i++) {
 			if (jQuery(this).attr("name") == opt.rules[i].field) {
-				var val = jQuery(this).val();
-				var error = false;
+				let val = jQuery(this).val();
+				let error = false;
 				if (typeof(opt.rules[i].min_length) == 'object') {
 					if (opt.rules[i].min_length.value > 0 && val.length < opt.rules[i].min_length.value) {
 						if (error_msg=='') jQuery(this).get(0).focus();
@@ -1816,7 +1816,7 @@ function trx_addons_form_validate(form, opt) {
 				}
 				if ((!error || !opt.exit_after_first_error) && typeof(opt.rules[i].mask) == 'object') {
 					if (opt.rules[i].mask.value != '') {
-						var regexp = new RegExp(opt.rules[i].mask.value);
+						let regexp = new RegExp(opt.rules[i].mask.value);
 						if (!regexp.test(val)) {
 							if (error_msg=='') jQuery(this).get(0).focus();
 							error_msg += '<p class="trx_addons_error_item">' + (typeof(opt.rules[i].mask.message)!='undefined' ? opt.rules[i].mask.message : opt.error_message_text ) + '</p>';
@@ -1837,7 +1837,7 @@ function trx_addons_form_validate(form, opt) {
 		}
 	});
 	if (error_msg!='' && opt.error_message_show) {
-		var error_message_box = form.find(".trx_addons_message_box");
+		let error_message_box = form.find(".trx_addons_message_box");
 		if (error_message_box.length == 0) error_message_box = form.parent().find(".trx_addons_message_box");
 		if (error_message_box.length == 0) {
 			form.append('<div class="trx_addons_message_box"></div>');
@@ -1859,15 +1859,15 @@ function trx_addons_form_validate(form, opt) {
 // Animated scroll to selected id
 function trx_addons_document_animate_to(id, callback) {
 	"use strict";
-	var oft = !isNaN(id) ? Number(id) : 0;
+	let oft = !isNaN(id) ? Number(id) : 0;
 	if (isNaN(id)) {
 		if (id.indexOf('#')==-1) id = '#' + id;
-		var obj = jQuery(id).eq(0);
+		let obj = jQuery(id).eq(0);
 		if (obj.length == 0) return;
 		oft = obj.offset().top;
 	}
-	var st  = jQuery(window).scrollTop();
-	var speed = Math.min(1200, Math.max(300, Math.round(Math.abs(oft-st) / jQuery(window).height() * 300)));
+	let st  = jQuery(window).scrollTop();
+	let speed = Math.min(1200, Math.max(300, Math.round(Math.abs(oft-st) / jQuery(window).height() * 300)));
 	jQuery('body,html').stop(true).animate( {scrollTop: oft - jQuery('#wpadminbar').height() + 1}, speed, 'linear', callback);
 }
 
@@ -1885,23 +1885,23 @@ function trx_addons_document_set_location(curLoc){
 // Add/Change arguments to the url address
 function trx_addons_add_to_url(prm) {
 	"use strict";
-	var ignore_empty = arguments[1] !== undefined ? arguments[1] : true;
-	var loc = location.href;
-	var q = loc.indexOf('?');
-	var attr = {};
+	let ignore_empty = arguments[1] !== undefined ? arguments[1] : true;
+	let loc = location.href;
+	let q = loc.indexOf('?');
+	let attr = {};
 	if (q > 0) {
-		var qq = loc.substr(q+1).split('&');
-		var parts = '';
-		for (var i=0; i<qq.length; i++) {
-			var parts = qq[i].split('=');
+		let qq = loc.substr(q+1).split('&');
+		let parts = '';
+		for (let i=0; i<qq.length; i++) {
+			let parts = qq[i].split('=');
 			attr[parts[0]] = parts.length>1 ? parts[1] : ''; 
 		}
 	}
-	for (var p in prm) {
+	for (let p in prm) {
 		attr[p] = prm[p];
 	}
 	loc = (q > 0 ? loc.substr(0, q) : loc) + '?';
-	var i = 0;
+	let i = 0;
 	for (p in attr) {
 		if (ignore_empty && attr[p]=='') continue;
 		loc += (i++ > 0 ? '&' : '') + p + '=' + attr[p];
@@ -1916,7 +1916,7 @@ function trx_addons_add_to_url(prm) {
 
 function trx_addons_browser_is_mobile() {
 	"use strict";
-	var check = false;
+	let check = false;
 	(function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od|ad)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check = true})(navigator.userAgent||navigator.vendor||window.opera);
 	return check;
 }
@@ -1926,7 +1926,7 @@ function trx_addons_browser_is_ios() {
 }
 function trx_addons_is_retina() {
 	"use strict";
-	var mediaQuery = '(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)';
+	let mediaQuery = '(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx)';
 	return (window.devicePixelRatio > 1) || (window.matchMedia && window.matchMedia(mediaQuery).matches);
 }
 
@@ -1938,7 +1938,7 @@ function trx_addons_is_retina() {
 function trx_addons_get_file_name(path) {
 	"use strict";
 	path = path.replace(/\\/g, '/');
-	var pos = path.lastIndexOf('/');
+	let pos = path.lastIndexOf('/');
 	if (pos >= 0)
 		path = path.substr(pos+1);
 	return path;
@@ -1946,7 +1946,7 @@ function trx_addons_get_file_name(path) {
 
 function trx_addons_get_file_ext(path) {
 	"use strict";
-	var pos = path.lastIndexOf('.');
+	let pos = path.lastIndexOf('.');
 	path = pos >= 0 ? path.substr(pos+1) : '';
 	return path;
 }
@@ -1959,7 +1959,7 @@ function trx_addons_get_file_ext(path) {
 // Return true, if all images in the specified container are loaded
 function trx_addons_check_images_complete(cont) {
 	"use strict";
-	var complete = true;
+	let complete = true;
 	cont.find('img').each(function() {
 		if (!complete) return;
 		if (!jQuery(this).get(0).complete) complete = false;
@@ -1973,8 +1973,8 @@ function trx_addons_check_images_complete(cont) {
 ---------------------------------------------------------------- */
 function trx_addons_replicate(str, num) {
 	"use strict";
-	var rez = '';
-	for (var i=0; i<num; i++) {
+	let rez = '';
+	for (let i=0; i<num; i++) {
 		rez += str;
 	}
 	return rez;
@@ -1988,7 +1988,7 @@ function trx_addons_replicate(str, num) {
 // Generates a storable representation of a value
 function trx_addons_serialize(mixed_val) {
 	"use strict";
-	var obj_to_array = arguments.length==1 || argument[1]===true;
+	let obj_to_array = arguments.length==1 || argument[1]===true;
 
 	switch ( typeof(mixed_val) ) {
 
@@ -2008,22 +2008,22 @@ function trx_addons_serialize(mixed_val) {
 			if (mixed_val == null)
 				return "N;";
 			else if (mixed_val instanceof Array) {
-				var idxobj = { idx: -1 };
-				var map = [];
-				for (var i=0; i<mixed_val.length; i++) {
+				let idxobj = { idx: -1 };
+				let map = [];
+				for (let i=0; i<mixed_val.length; i++) {
 					idxobj.idx++;
-					var ser = trx_addons_serialize(mixed_val[i]);
+					let ser = trx_addons_serialize(mixed_val[i]);
 					if (ser)
 						map.push(trx_addons_serialize(idxobj.idx) + ser);
 				}                                      
 				return "a:" + mixed_val.length + ":{" + map.join("") + "}";
 			} else {
-				var class_name = trx_addons_get_class(mixed_val);
+				let class_name = trx_addons_get_class(mixed_val);
 				if (class_name == undefined)
 					return false;
-				var props = new Array();
-				for (var prop in mixed_val) {
-					var ser = trx_addons_serialize(mixed_val[prop]);
+				let props = new Array();
+				for (let prop in mixed_val) {
+					let ser = trx_addons_serialize(mixed_val[prop]);
 					if (ser)
 						props.push(trx_addons_serialize(prop) + ser);
 				}
@@ -2043,7 +2043,7 @@ function trx_addons_serialize(mixed_val) {
 function trx_addons_get_class(obj) {
 	"use strict";
 	if (obj instanceof Object && !(obj instanceof Array) && !(obj instanceof Function) && obj.constructor) {
-		var arr = obj.constructor.toString().match(/function\s*(\w+)/);
+		let arr = obj.constructor.toString().match(/function\s*(\w+)/);
 		if (arr && arr.length == 2) return arr[1];
 	}
 	return false;

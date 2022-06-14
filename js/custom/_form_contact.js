@@ -2,14 +2,14 @@ jQuery(document).ready(function() {
     //contact form processing
     jQuery('form.contact_1', '.sc_form_style_form_1').on('submit', function( e ){
         e.preventDefault();
-        var $form = jQuery(this);
+        let $form = jQuery(this);
         //checking on empty values
-        var p3_checked = $("#privacy-3:checked").length > 0;
+        let p3_checked = $("#privacy-3:checked").length > 0;
 
-        var formFields = $form.serializeArray();
-        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-        var emailaddressVal = jQuery("#contact_form_email").val();
-        for (var i = formFields.length - 1; i >= 0; i--) {
+        let formFields = $form.serializeArray();
+        let emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        let emailaddressVal = jQuery("#contact_form_email").val();
+        for (let i = formFields.length - 1; i >= 0; i--) {
             if (!formFields[i].value.length) {
                 $form.find('.sc_form_result', '.sc_form_style_form_1').html("");
                 $form.find('[name="' + formFields[i].name + '"]', '.sc_form_style_form_1').addClass('trx_addons_field_error').on('focus', function(){jQuery(this).removeClass('trx_addons_field_error')});
@@ -47,8 +47,8 @@ jQuery(document).ready(function() {
             return;
         };
         //sending form data to PHP server if fields are not empty
-        var request = $form.serialize();
-        var ajax = jQuery.post( "include/contact-form.php", request )
+        let request = $form.serialize();
+        let ajax = jQuery.post( "include/contact-form.php", request )
             .done(function( data ) {
                 $form.find('.sc_form_result', '.sc_form_style_form_1').removeClass('trx_addons_message_box_error');
                 $form.find('.sc_form_result', '.sc_form_style_form_1').removeClass('error_email_mask');

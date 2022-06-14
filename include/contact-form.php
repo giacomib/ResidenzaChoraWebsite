@@ -29,6 +29,9 @@ $errors = array();
 if(isset($_POST['message']) and isset($_POST['name'])) {
 	if(!empty($_POST['name']))
 		$sender_name  = stripslashes(strip_tags(trim($_POST['name'])));
+
+	if(!empty($_POST['cognome']))
+		$surname  = stripslashes(strip_tags(trim($_POST['cognome'])));
 	
 	if(!empty($_POST['message']))
 		$message      = stripslashes(strip_tags(trim($_POST['message'])));
@@ -38,6 +41,19 @@ if(isset($_POST['message']) and isset($_POST['name'])) {
 	
 	if(!empty($_POST['subject']))
 		$subject      = stripslashes(strip_tags(trim($_POST['subject'])));
+	
+	if(!empty($_POST['telefono']))
+		$telephone  = stripslashes(strip_tags(trim($_POST['telefono'])));
+
+	if(!empty($_POST['comune']))
+		$country  = stripslashes(strip_tags(trim($_POST['comune'])));
+
+	if(!empty($_POST['cap']))
+		$cap  = stripslashes(strip_tags(trim($_POST['cap'])));
+		
+	$p1  = stripslashes(strip_tags(trim($_POST['privacy-1'])));
+	$p2  = stripslashes(strip_tags(trim($_POST['privacy-2'])));
+	$p3  = stripslashes(strip_tags(trim($_POST['privacy-3'])));
 
 
 	//Message if no sender name was specified
@@ -56,12 +72,17 @@ if(isset($_POST['message']) and isset($_POST['name'])) {
 
 	//$message = (!empty($message)) ? wordwrap($message, 70) : '';
 
-	$message = "	Name: $sender_name 
+	$message = "	Nome: $sender_name $surname
 
 	E-mail: $sender_email 
 
-	Message: $message
+	Messaggio: $message
 
+	Telefono: $telephone
+
+	Comune: $country, $cap
+
+	Privacy boxes: $p1, $p2, $p3
 	";
 
 

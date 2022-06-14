@@ -234,10 +234,10 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 .images-modal {
     position: relative;
     padding: 10px;
-    margin: 2vw;
     background-color: white;
     top: 50%;
     transform: translateY(-50%);
+    margin: 0 20px;
 }
 
 .custom_wrap {
@@ -328,9 +328,10 @@ input[type="radio"]+label:before, input[type="checkbox"]+label:before {
 @media screen and (min-width: 600px) {
 
     .images-modal img {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        max-height: 90vh;
     }
     
     .column-inner-custom {

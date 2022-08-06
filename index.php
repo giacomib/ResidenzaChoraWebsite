@@ -59,9 +59,9 @@
                                                     data-transform_out="opacity:0;s:300;" data-start="1400" data-splitin="none" data-splitout="none" data-responsive_offset="on">
                                                     SOLUZIONI ABITATIVE CHE SI MUOVONO NEL PRESENTE PER ESSERE GIà NEL FUTURO</h1>
 
-                                                <a href="tel:111111111"><div class="tp-caption rev-btn  tp-resizeme  theme_button slide_button green-btn" id="slide-1-layer-2" data-x="center" data-hoffset="" data-y="center" data-voffset="200" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;"
+                                                <a href="#contacts"><div class="tp-caption rev-btn  tp-resizeme  theme_button slide_button green-btn" id="slide-1-layer-2" data-x="center" data-hoffset="" data-y="center" data-voffset="200" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;"
                                                     data-style_hover="c:#88b04b;bg:rgba(255, 255, 255, 1.00);" data-transform_in="y:50px;opacity:0;s:500;e:Power2.easeOut;" data-transform_out="opacity:0;s:300;" data-start="1700" data-splitin="none"
-                                                    data-splitout="none" > Chiamaci Subito</div></a>
+                                                    data-splitout="none" > Contattaci </div></a>
 
                                                     <!--data-actions='[{"event":"click","action":"simplelink","target":"_blank","url":"http:\/\/themeforest.net\/user\/themerex\/portfolio","delay":""}]' data-responsive_offset="on"-->
 
@@ -318,7 +318,7 @@
                                                                     del progetto. <br>
                                                                     Realizzare nuove abitazioni oggi, non significa solo edificare nuovi immobili, ma costruire vere e proprie
                                                                     soluzioni abitative... che si muovono nel presente per essere già nel futuro.
-                                                                    <a href ="" id="capitolato" style="font-weight: bolder;">Scarica qui il capitolato</a>
+                                                                    <a href ="" id="capitolato" style="font-weight: bolder; display:none;">Scarica qui il capitolato</a>
                                                                 </div>
                                                                 <div class="sc_item_button sc_item_button_simple sc_promo_button sc_align_default sc_button_wrap">
                                                                     <!--
@@ -361,12 +361,18 @@
                                                                                     <div class="sc_skills_item_title">MQ per appartamento</div>
                                                                                 </div>
                                                                             </div>
+                                                                            <?php
+                                                                                $startDate = "2022-09-01";
+                                                                                $dateDifference = date_diff(date_create($startDate), date_create());
+                                                                                $days = $dateDifference->format("%a");
+                                                                                $text = $startDate > date_create() ? "Giorni dall'inizio" : "Giorni dall'inizio";
+                                                                            ?>
                                                                             <div class="sc_skills_column trx_addons_column-1_4">
                                                                                 <div class="sc_skills_item_wrap">
                                                                                     <div class="sc_skills_item">
-                                                                                        <div class="sc_skills_total" data-start="0" data-stop="540" data-step="13" data-max="1250" data-speed="15" data-duration="400" data-ed="">0</div>
+                                                                                        <div class="sc_skills_total" data-start="0" data-stop="<?= $days ?>" data-step="13" data-speed="15" data-duration="400" data-ed="">0</div>
                                                                                     </div>
-                                                                                    <div class="sc_skills_item_title">Giorni dall'inizio</div>
+                                                                                    <div class="sc_skills_item_title"><?= $text ?></div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="sc_skills_column trx_addons_column-1_4">
@@ -510,37 +516,41 @@
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/05.jpg"  class="zoomE"></img>
                                                                                 </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
-                                                                                    data-date="July 2, 2016">
-                                                                                    <img src = "images/Foto_2/06.jpg"  class="zoomE"></img>
-                                                                                </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                <div class="swiper-slide slider_image_7" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/07.jpg" class="zoomE"></img>
                                                                                 </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                <div class="swiper-slide slider_image_8" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/08.jpg" class="zoomE"></img>
                                                                                 </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                <div class="swiper-slide slider_image_9" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/09.jpg" class="zoomE"></img>
                                                                                 </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                <div class="swiper-slide slider_image_10" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/10.jpg" class="zoomE"></img>
                                                                                 </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                <div class="swiper-slide slider_image_11" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/11.jpg" class="zoomE"></img>
                                                                                 </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                <div class="swiper-slide slider_image_12" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/12.jpg" class="zoomE"></img>
                                                                                 </div>
-                                                                                <div class="swiper-slide slider_image_5" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                <div class="swiper-slide slider_image_13" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
                                                                                     data-date="July 2, 2016">
                                                                                     <img src = "images/Foto_2/13.jpg" class="zoomE"></img>
+                                                                                </div>
+                                                                                <div class="swiper-slide slider_image_14" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                    data-date="July 2, 2016">
+                                                                                    <img src = "images/Foto_2/14.jpg" class="zoomE"></img>
+                                                                                </div>
+                                                                                <div class="swiper-slide slider_image_15" data-cats="&lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Interior&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Process&lt;/a&gt;, &lt;a href=&quot;#&quot; rel=&quot;category tag&quot;&gt;Visualizing Complex&lt;/a&gt;"
+                                                                                    data-date="July 2, 2016">
+                                                                                    <img src = "images/Foto_2/15.jpg" class="zoomE"></img>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -604,7 +614,7 @@
                                                                                                     <ul class="trx_addons_list trx_addons_list_parameters">
                                                                                                         <li>
                                                                                                             <strong>APPARTAMENTO</strong>
-                                                                                                            <em>147,00 mq</em>
+                                                                                                            <em>105,00 mq</em>
                                                                                                         </li>
                                                                                                         <li>
                                                                                                             <strong>BALCONI</strong>
@@ -655,7 +665,7 @@
                                                                                                     <ul class="trx_addons_list trx_addons_list_parameters">
                                                                                                         <li>
                                                                                                             <strong>APPARTAMENTO</strong>
-                                                                                                            <em>135,00 mq</em>
+                                                                                                            <em>105,00 mq</em>
                                                                                                         </li>
                                                                                                         <li>
                                                                                                             <strong>BALCONI</strong>
@@ -708,7 +718,7 @@
                                                                                                     <ul class="trx_addons_list trx_addons_list_parameters">
                                                                                                         <li>
                                                                                                             <strong>APPARTAMENTO</strong>
-                                                                                                            <em>129,00 mq</em>
+                                                                                                            <em>105,00 mq</em>
                                                                                                         </li>
                                                                                                         <li>
                                                                                                             <strong>BALCONI</strong>
@@ -757,7 +767,7 @@
                                                                                                     <ul class="trx_addons_list trx_addons_list_parameters">
                                                                                                         <li>
                                                                                                             <strong>APPARTAMENTO</strong>
-                                                                                                            <em>129,00 mq</em>
+                                                                                                            <em>105,00 mq</em>
                                                                                                         </li>
                                                                                                         <li>
                                                                                                             <strong>BALCONI</strong>
@@ -815,7 +825,7 @@
                                                                                                     <ul class="trx_addons_list trx_addons_list_parameters">
                                                                                                         <li>
                                                                                                             <strong>APPARTAMENTO</strong>
-                                                                                                            <em>127,00 mq</em>
+                                                                                                            <em>105,00 mq</em>
                                                                                                         </li>
                                                                                                         <li>
                                                                                                             <strong>BALCONI</strong>
@@ -873,7 +883,7 @@
                                                                                                     <ul class="trx_addons_list trx_addons_list_parameters">
                                                                                                         <li>
                                                                                                             <strong>APPARTAMENTO</strong>
-                                                                                                            <em>127,00 mq</em>
+                                                                                                            <em>105,00 mq</em>
                                                                                                         </li>
                                                                                                         <li>
                                                                                                             <strong>BALCONI</strong>
@@ -1283,7 +1293,7 @@
                                                             <div class="sc_align_center">
                                                                 Commercializzato da:<br/>
                                                                 <span class="trx_addons_dark">KOS S.R.L. Home Solution</span>
-                                                                <br/> Piazza Monumento<br/> Legnano, MI 20025<br/> Telefono: <span class="trx_addons_dark"><a href="tel:+1234567890" style="color: #026232;">123-456-7890</a> <br/></span> Email: <span class="trx_addons_dark"><a href="mailto:info@residenzachora.com" style="color: #026232;">info@residenzachora.com</a>
+                                                                <br/> Piazza Monumento<br/> Legnano, MI 20025<br/></span> Email: <span class="trx_addons_dark"><a href="mailto:info@residenzachora.com" style="color: #026232;">info@residenzachora.com</a>
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -1298,7 +1308,7 @@
 
                                                     <div id="sc_googlemap_1_wrap" class="sc_googlemap_wrap">
                                                         <div id="sc_googlemap_1" class="sc_googlemap sc_googlemap_default h92vh" data-zoom="16" data-style="dark">
-                                                            <iframe src="https://snazzymaps.com/embed/382113" width="100%" height="100%" style="border:none;"></iframe>
+                                                            <iframe src="https://snazzymaps.com/embed/412504" width="100%" height="100%" style="border:none;"></iframe>
                                                         </div>
                                                     </div>
 
@@ -1397,7 +1407,7 @@
                     <div class="copyright_wrap_inner">
                         <div class="content_wrap">
                             <div class="copyright_text">
-                                <a target="_blank" href="https://makudaconsulting.com/" class="titolo_colorato"> Makuda </a>© <span id="date"></span> . All rights reserved. Terms of use and Privacy Policy
+                                <a target="_blank" href="https://makuda.black/" class="titolo_colorato"> Makuda </a>© <span id="date"></span> . All rights reserved. Terms of use and Privacy Policy
                             </div>
                         </div>
                     </div>

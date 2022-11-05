@@ -1,6 +1,6 @@
 $(document).ready(() => {
     setupErrorBox();
-    $(".submit-form").click(checkControl);
+    $(".submit-form").click(onFormSubmit);
     $(".sc_services_item").click(onServiceClick);
     $(".dark-box").click(onDarkBoxClick);
     $(".img-zoom-result").hide();
@@ -11,6 +11,26 @@ $(document).ready(() => {
     });
 
 })
+
+function onFormSubmit(e) {
+    e.preventDefault();
+
+    const validate = checkControl();
+    if(!validate) return;
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfUr98iAAAAAGER4NoIzRRA1LofjqthGHBZOLSC', {action: 'submit'})
+        .then(function(token) {
+            fetch("include/contact-form.php", {
+                method: "POST",
+                body: new FormData(document.getElementById("contact_form")),
+                headers: {
+                    'g-recaptcha-response': token
+                }
+            });
+        });
+    });
+}
 
 function onServiceClick() {
     //prima di aprire la sezione, riporto la visualizzazione al centro dell'animazione
@@ -117,7 +137,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Il campo 'Nome' è obbligatorio");
         showErrorBox();
-        return;
+        return false;
     }
 
     let surname = $("#contact_form_surname").val();
@@ -125,7 +145,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Il campo 'Cognome' è obbligatorio");
         showErrorBox();
-        return;
+        return false;
     }
 
     let phone = $("#contact_form_phone").val();
@@ -133,7 +153,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Il campo 'Telefono' è obbligatorio");
         showErrorBox();
-        return;
+        return false;
     }
 
     let email = $("#contact_form_email").val();
@@ -141,7 +161,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Il campo 'email' è obbligatorio");
         showErrorBox();
-        return;
+        return false;
     }
 
     let city = $("#contact_form_city").val();
@@ -149,7 +169,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Il campo 'Comune' è obbligatorio");
         showErrorBox();
-        return;
+        return false;
     }
     
     let city_2 = $("#contact_form_city_2").val();
@@ -157,7 +177,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Il campo 'CAP' è obbligatorio");
         showErrorBox();
-        return;
+        return false;
     }
 
     let msg = $("#contact_form_message").val();
@@ -165,7 +185,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Il testo del messaggio è obbligatorio");
         showErrorBox();
-        return;
+        return false;
     }
 
     let cb1 = $("#privacy-1").is(':checked');
@@ -173,7 +193,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Prima casella obbligatoria");
         showErrorBox();
-        return;
+        return false;
     }
 
     let cb2 = $("#privacy-2").is(':checked');
@@ -181,7 +201,7 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Seconda casella obbligatoria");
         showErrorBox();
-        return;
+        return false;
     }
 
     let cb3 = $("#privacy-3").is(':checked');
@@ -189,8 +209,10 @@ function checkControl() {
         errorItem1.html("ERRORE");
         errorItem2.html("Terza casella obbligatoria");
         showErrorBox();
-        return;
+        return false;
     }
+
+    return true;
 }
 
 function showErrorBox() {

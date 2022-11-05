@@ -643,7 +643,8 @@
                                                                                                     <figure class="my_figure" id="map_1">
                                                                                                         <div>
                                                                                                             <div class="img-zoom-container" id="container_1">
-                                                                                                                <img id="piantina_1" src="images/Piantine_2/PIANO TERRA dx.png">
+                                                                                                                <img id="piantina_1" class="piantina-sold" src="images/Piantine_2/PIANO TERRA dx.png">
+                                                                                                                <img class="sold" src="images/sold.png">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </figure>
@@ -696,7 +697,8 @@
                                                                                                     <figure class="my_figure">
                                                                                                         <div>
                                                                                                             <div class="img-zoom-container">
-                                                                                                                <img id="piantina_2" src="images/Piantine_2/PIANO TERRA sx.png">
+                                                                                                                <img id="piantina_2" class="piantina-sold" src="images/Piantine_2/PIANO TERRA sx.png">
+                                                                                                                <img class="sold" src="images/sold.png">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </figure>
@@ -745,7 +747,8 @@
                                                                                                     <figure class="my_figure">
                                                                                                         <div>
                                                                                                             <div class="img-zoom-container">
-                                                                                                                <img id="piantina_3" src="images/Piantine_2/PIANO 1 dx.png">
+                                                                                                                <img id="piantina_3" class="piantina-sold" src="images/Piantine_2/PIANO 1 dx.png">
+                                                                                                                <img class="sold" src="images/sold.png">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </figure>
@@ -1324,7 +1327,7 @@
                                                     <div class="sc_content sc_content_default" style="padding-top: 0;">
                                                         <div class="sc_content_container">
                                                             <div class="sc_form sc_form_enquire sc_form_style_form_1">
-                                                                <form class="footer-form contact_1" method="post" action="include/contact-form.php">
+                                                                <form id="contact_form" class="footer-form contact_1" method="post" action="include/contact-form.php">
                                                                     <div class="sc_form_info">
                                                                         <div class="trx_addons_columns_wrap columns_padding_bottom"></div>
                                                                     </div>
@@ -1382,7 +1385,13 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="sc_form_field sc_form_field_button">
-                                                                            <button class="submit-form button_custom">Prenota una visita</button>
+                                                                            <button
+                                                                                class="submit-form button_custom g-recaptcha"
+                                                                                data-sitekey="reCAPTCHA_site_key" 
+                                                                                data-callback='onSubmit' 
+                                                                                data-action='submit'>
+                                                                                Prenota una visita
+                                                                            </button>
                                                                         </div>
                                                                         <div class="trx_addons_message_box sc_form_result">
                                                                         </div>
@@ -1436,6 +1445,7 @@
     <script type="text/javascript" src="js/vendor/mediaelement/mediaelement-and-player.min.js"></script>
 
 
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfUr98iAAAAAGER4NoIzRRA1LofjqthGHBZOLSC"></script>
     <script type='text/javascript' src='js/custom/_utils.js'></script>
     <script type='text/javascript' src='js/custom/_main.js'></script>
     <script type='text/javascript' src='js/custom/_date.js'></script>
@@ -1443,7 +1453,6 @@
     <script type='text/javascript' src='js/custom/_init.js'></script>
     <script type="text/javascript" src="js/custom/_form_contact.js"></script>
     <script type="text/javascript" src="js/custom/my_js.js"></script>
-
 
 
     <a href="#" class="trx_addons_scroll_to_top trx_addons_icon-up" title="Scroll to top"></a>

@@ -864,7 +864,8 @@
                                                                                                     <figure class="my_figure">
                                                                                                         <div>
                                                                                                             <div class="img-zoom-container">
-                                                                                                                <img id="piantina_5" src="images/Piantine_2/PIANO 2 dx.png">
+                                                                                                                <img id="piantina_5" class="piantina-sold" src="images/Piantine_2/PIANO 2 dx.png">
+                                                                                                                <img class="sold" src="images/sold.png">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </figure>
@@ -922,7 +923,8 @@
                                                                                                     <figure class="my_figure">
                                                                                                         <div>
                                                                                                             <div class="img-zoom-container">
-                                                                                                                <img id="piantina_6" src="images/Piantine_2/PIANO 2 sx.png">
+                                                                                                                <img id="piantina_6" class="piantina-sold" src="images/Piantine_2/PIANO 2 sx.png">
+                                                                                                                <img class="sold" src="images/sold.png">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </figure>
